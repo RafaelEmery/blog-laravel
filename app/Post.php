@@ -12,7 +12,6 @@ class Post extends Model
         'palavrasChave',
         'categoria',
         'conteudo',
-        'conteudo',
         'imagem',
     ];
 }

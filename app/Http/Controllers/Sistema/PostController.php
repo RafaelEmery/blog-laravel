@@ -14,8 +14,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return '<h1>Teste!</h1>';
+    {   
+        $posts = Post::all();
+
+        return view('sistema.index', compact('posts'));
     }
 
     /**
@@ -35,8 +37,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $dados = $request->all();
+        $postNovo = Post::create($dados);
+        return redirect(route('sistema.blog.index'))->with('success', 'O Post foi criado com sucesso!');
     }
 
     /**
