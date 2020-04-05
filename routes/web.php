@@ -20,7 +20,7 @@ Route::get('/', function () {
 //Grupo de rotas para o blog
 Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'], function() {
 
-    Route::resource('blog', 'PostController');
+    Route::resource('posts', 'PostController');
 });
 
 

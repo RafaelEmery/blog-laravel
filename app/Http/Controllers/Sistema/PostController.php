@@ -17,7 +17,7 @@ class PostController extends Controller
     {   
         $posts = Post::all();
 
-        return view('sistema.index', compact('posts'));
+        return view('sistema.posts.index', compact('posts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('sistema.posts.create');
     }
 
     /**
@@ -83,8 +83,13 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $postDeletado = Post::find($id);
+        //$postDeletado->delete();
+
+        dd($postDeletado);
+
+        return redirect()->back();
     }
 }
