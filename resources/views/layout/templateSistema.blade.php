@@ -9,14 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog do Rafa - Admin</title>
+  <title>Rafa Talks - Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('/templateAdmin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{asset('/templateAdmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/templateAdmin/css/sb-admin-2.css')}}" rel="stylesheet">
 
   @yield('head')
 </head>
@@ -52,7 +52,7 @@
       <!-- Nav Item - Comentários -->
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-pen"></i>
+          <i class="fas fa-fw fa-comments"></i>
           <span>Comentários</span></a>
       </li>
 
@@ -63,10 +63,17 @@
           <span>Usuários</span></a>
       </li>
 
+      <!-- Nav Item - Mensagens -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-envelope"></i>
+          <span>Mensagens</span></a>
+      </li>
+
       <!-- Nav Item - Rodapé -->
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-info"></i>
+          <i class="fas fa-fw fa-info-circle"></i>
           <span>Rodapé</span></a>
       </li>
 
@@ -75,6 +82,13 @@
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-trash"></i>
           <span>Lixeira</span></a>
+      </li>
+
+      <!-- Nav Item - Ajuda -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-question-circle"></i>
+          <span>Ajuda</span></a>
       </li>
 
       <!-- Divider -->

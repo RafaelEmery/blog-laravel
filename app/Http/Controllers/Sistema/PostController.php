@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sistema;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Validate;
 
 class PostController extends Controller
 {
@@ -38,6 +39,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {   
+        $request->validate([
+            'titulo' => 'required',
+            'autor' => 'required',
+            'conteudo' => 'required'  
+        ]);
+
+        //Fazer atribuição para a imagem e um $postNovo->update()
+
         $dados = $request->all();
         $postNovo = Post::create($dados);
         return redirect(route('sistema.blog.index'))->with('success', 'O Post foi criado com sucesso!');
@@ -49,9 +58,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        return json_encode($post);
     }
 
     /**
@@ -90,6 +101,6 @@ class PostController extends Controller
 
         dd($postDeletado);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
     }
 }

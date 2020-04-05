@@ -39,10 +39,10 @@
                         <td> {{ $post->autor}} </td>
                         <td> Não </td>
                         <td>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success" style="width:38px;"><i class="fas fa-flag fa-sm"></i></a>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info" style="width:38px;"><i class="fas fa-info fa-sm"></i></a>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-warning" style="width:38px;"><i class="fas fa-edit fa-sm"></i></a>
-                            <a href=" {{route('sistema.posts.destroy', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-danger" style="width:38px;"><i class="fas fa-trash fa-sm"></i></a>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
                         </td>
                     </tr>
                     @endforeach
