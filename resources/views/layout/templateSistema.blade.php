@@ -122,6 +122,8 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+          @yield('tituloPagina')
+
           @yield('conteudo')
 
         </div>

@@ -1,12 +1,16 @@
 @extends('layout.templateSistema')
 
-@section('conteudo')
+@section('tituloPagina')
 
- <!-- Page Heading -->
- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Posts</h1>
-    <a  href="{{route('sistema.posts.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary"><i class="fas fa-plus fa-sm"></i>   Novo Post</a>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Posts</h1>
+  <a  href="{{route('sistema.posts.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary"><i class="fas fa-plus fa-sm"></i>   Novo Post</a>
 </div>
+
+@endsection
+
+@section('conteudo')
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -41,7 +45,7 @@
                         <td>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
+                            <a href=" {{route('sistema.posts.edit', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
                         </td>
                     </tr>

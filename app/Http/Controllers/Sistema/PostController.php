@@ -49,7 +49,7 @@ class PostController extends Controller
 
         $dados = $request->all();
         $postNovo = Post::create($dados);
-        return redirect(route('sistema.blog.index'))->with('success', 'O Post foi criado com sucesso!');
+        return redirect(route('sistema.posts.index'))->with('success', 'O Post foi criado com sucesso!');
     }
 
     /**
@@ -71,9 +71,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $postEditado = Post::find($id);
+
+        return view('sistema.posts.edit', compact('postEditado'));
     }
 
     /**
@@ -83,9 +85,21 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'autor' => 'required',
+            'conteudo' => 'required'  
+        ]);
+        
+        //Depois fazer função para se trabalhar com a Imagem
+
+        $dados = $request->all();
+        $postEditado = Post::find($id);
+        $postEditado->update();
+        
+        return redirect(route('sistema.posts.index'))->with('success', 'O Post foi editado com sucesso!');
     }
 
     /**
