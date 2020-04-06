@@ -45,8 +45,8 @@
                         <td>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
-                            <a href=" {{route('sistema.posts.edit', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
+                            <a href=" {{route('sistema.posts.edit',$post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
+                            <a href="#modalDeletar" data-toggle="modal" data-get=" {{route('sistema.posts.destroy', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -56,27 +56,33 @@
     </div>
 </div>
 
-<!-- Modal para Deletar -->
-<!-- Ainda não tá funcionando! -->
-<div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<!-- Modal deletar-->
+<div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="modalDeletarLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="text-danger"> Você estará enviando este Post para a Lixeira. Tem certeza?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger">Deletar</button>
-        </div>
+          <div class="modal-header">
+              <h5 class="modal-title" id="modalDeletarLabel">Deletar Post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="alert alert-warning">
+                  Você está enviando este Post para a Lixeira!
+              </div>
+              <h4>Tem certeza disso?</h4>
+          </div>
+          <div class="modal-footer">
+              <form id="deletar-post" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  @method("delete")
+                  <button type="submit" class="btn btn-danger">Deletar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                
+              </form>
+          </div>
       </div>
-    </div>
   </div>
+</div>
 
 @endsection
 
@@ -91,10 +97,15 @@
 
     <script>
 
-    $('#modalDeletar').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-      })
+      window.onload = () => {
 
+        //Deletar um registro
+        $('#modalDeletar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            this.querySelector("form#deletar-post").action = button.data('get')
+        })
+
+      }
     </script>
 
 @endsection

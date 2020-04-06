@@ -111,9 +111,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $postDeletado = Post::find($id);
-        //$postDeletado->delete();
-
-        dd($postDeletado);
+        $postDeletado->delete();
 
         return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
     }
