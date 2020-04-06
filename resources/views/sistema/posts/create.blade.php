@@ -10,7 +10,7 @@
 
 @section('conteudo')
 
-<!-- Formulário para criar um novo card -->
+<!-- Formulário para criar um Post -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Criar um novo Post</h6>
@@ -34,11 +34,11 @@
                 <label for="categoria"><strong>Categoria</strong></label>
                 <select class="form-control" id="categoria" name="categoria">
                     <option></option>
-                    <option>Categoria 1</option>
-                    <option>Categoria 2</option>
-                    <option>Categoria 3</option>
-                    <option>Categoria 4</option>
-                    <option>Categoria 5</option>
+                    <option>Programação</option>
+                    <option>Universidade</option>
+                    <option>Vida</option>
+                    <option>Entreterimento</option>
+                    <option>Esportes</option>
                 </select>
             </div>
             <div class="form-group">

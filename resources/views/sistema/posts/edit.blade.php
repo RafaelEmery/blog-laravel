@@ -10,7 +10,7 @@
 
 @section('conteudo')
 
-<!-- Formulário para criar um novo card -->
+<!-- Formulário para Editar um Post -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Criar um novo Post</h6>
@@ -33,13 +33,13 @@
             </div>
             <div class="form-group">
                 <label for="categoria"><strong>Categoria</strong></label>
-                <select class="form-control" id="categoria" name="categoria">
+                <select class="form-control" id="categoria" name="categoria" value=" {{ $postEditado->categoria }} ">
                     <option></option>
-                    <option>Categoria 1</option>
-                    <option>Categoria 2</option>
-                    <option>Categoria 3</option>
-                    <option>Categoria 4</option>
-                    <option>Categoria 5</option>
+                    <option>Programação</option>
+                    <option>Universidade</option>
+                    <option>Vida</option>
+                    <option>Entreterimento</option>
+                    <option>Esportes</option>
                 </select>
             </div>
             <div class="form-group">
@@ -51,7 +51,7 @@
                 <input type="file" class="form-control-file" id="imagem" name="imagem" value=" {{ $postEditado->imagem }} ">
                 <small><strong>ATENÇÃO:</strong>Esta será a imagem principal do Post.</small>
             </div>
-            <button type="submit" class="btn btn-success">Criar Post</button>
+            <button type="submit" class="btn btn-success">Salvar Alterações</button>
             <a type="button" class="btn btn-danger" href=" {{route('sistema.posts.index')}} ">Cancelar</a>
         </form>
     </div>

@@ -97,7 +97,7 @@ class PostController extends Controller
 
         $dados = $request->all();
         $postEditado = Post::find($id);
-        $postEditado->update();
+        $postEditado->update($dados);
         
         return redirect(route('sistema.posts.index'))->with('success', 'O Post foi editado com sucesso!');
     }

@@ -20,7 +20,20 @@ Route::get('/', function () {
 //Grupo de rotas para o blog
 Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'], function() {
 
+    //Rotas para os Posts
     Route::resource('posts', 'PostController');
+
+    /*
+    //Rotas para a Lixeira
+    Route::resource('lixeira', 'LixeiraController');
+    Route::get('lixeira/restaurar/{id}', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController']);
+
+    //Rotas para o Rodapé
+    Route::resource('rodape', 'RodapeController');
+
+    //Rotas para a Ajuda
+    Route::resource('ajuda', 'AjudaController');
+    */
 });
 
 
