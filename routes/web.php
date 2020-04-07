@@ -22,18 +22,8 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
 
     //Rotas para os Posts
     Route::resource('posts', 'PostController');
+    Route::get('posts/alternarDestaque/{id}', ['as' => 'posts.destaque', 'uses' => 'PostController@alternarDestaque'] );
 
-    /*
-    //Rotas para a Lixeira
-    Route::resource('lixeira', 'LixeiraController');
-    Route::get('lixeira/restaurar/{id}', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController']);
-
-    //Rotas para o Rodapé
-    Route::resource('rodape', 'RodapeController');
-
-    //Rotas para a Ajuda
-    Route::resource('ajuda', 'AjudaController');
-    */
 });
 
 

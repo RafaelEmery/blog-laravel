@@ -56,18 +56,18 @@
           <span>Comentários</span></a>
       </li>
 
-      <!-- Nav Item - Usuários -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Usuários</span></a>
-      </li>
-
       <!-- Nav Item - Mensagens -->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-envelope"></i>
           <span>Mensagens</span></a>
+      </li>
+
+      <!-- Nav Item - Usuários -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Usuários</span></a>
       </li>
 
       <!-- Nav Item - Rodapé -->

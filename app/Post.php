@@ -13,5 +13,6 @@ class Post extends Model
         'categoria',
         'conteudo',
         'imagem',
+        'destaque'
     ];
 }

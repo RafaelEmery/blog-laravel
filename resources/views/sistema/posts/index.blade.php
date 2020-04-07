@@ -30,10 +30,11 @@
                 </thead>
                 <tfoot>
                     <tr>
+                        <!-- Gambiarra para olhar a largura das colunas -->
                         <th>Título</th>
-                        <th>Autor</th>
-                        <th>Destaque</th>
-                        <th>Ações</th>
+                        <th style="width:25%">Autor</th>
+                        <th style="width:10%">Destaque</th>
+                        <th style="width:20%">Ações</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -41,10 +42,10 @@
                     <tr>
                         <td> {{ $post->titulo }} </td>
                         <td> {{ $post->autor}} </td>
-                        <td> Não </td>
+                        <td> {!! $post->destaque ? '<p class="text-success">Sim</p>' : '<p class="text-danger">Não</p>' !!} </td>
                         <td>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
+                            <a href=" {{route('sistema.posts.destaque', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
+                            <a href="#modalDetalhes" data-toggle="modal" data-get=" {{route('sistema.posts.show', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
                             <a href=" {{route('sistema.posts.edit',$post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
                             <a href="#modalDeletar" data-toggle="modal" data-get=" {{route('sistema.posts.destroy', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
                         </td>
@@ -52,6 +53,43 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Informações -->
+<div class="modal fade" id="modalDetalhes" tabindex="-1" role="dialog" aria-labelledby="modalDetalhesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDetalhesLabel">Detalhes crud</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 form-group">
+                        <label for="detalhes-titulo">Título</label>
+                        <input type="text" id="detalhes-titulo" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-autor">Autor</label>
+                        <input type="text" id="detalhes-autor" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-palavrasChave">Palavras Chave</label>
+                        <input type="text" id="detalhes-palavrasChave" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-categoria">Categoria</label>
+                        <input type="text" id="detalhes-categoria" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
 </div>
@@ -98,6 +136,20 @@
     <script>
 
       window.onload = () => {
+
+        $('#modalDetalhes').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            let modal = $(this)
+
+            $.getJSON(button.data('get'),(dados) => {
+                console.log(dados)
+                $('#detalhes-titulo').val(dados.titulo)
+                $('#detalhes-autor').val(dados.autor)
+                $('#detalhes-palavrasChave').val(dados.palavrasChave)
+                $('#detalhes-categoria').val(dados.categoria)
+            
+            });
+        })
 
         //Deletar um registro
         $('#modalDeletar').on('show.bs.modal', function (event) {

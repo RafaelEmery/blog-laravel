@@ -115,4 +115,27 @@ class PostController extends Controller
 
         return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
     }
+
+    public function alternarDestaque($id) 
+    {   
+        $postEncontrado = Post::find($id);
+
+        if ($postEncontrado->destaque) {
+            $postEncontrado->update([ 
+                'destaque' => false
+            ]);
+        }
+        else {
+            $postEncontrado->update([ 
+                'destaque' => true
+            ]); 
+        }
+
+        return redirect()->back()->with('success', 'O Destaque foi atualizado com sucesso!');
+    }
+
+    public function alteraPropImagem($imagem) 
+    {
+        
+    }
 }

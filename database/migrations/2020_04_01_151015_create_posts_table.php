@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('categoria')->nullable();
             $table->text('conteudo');
             $table->string('imagem')->nullable();
+            $table->boolean('destaque')->default(false);
             $table->timestamps();
         });
     }
