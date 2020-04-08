@@ -124,6 +124,7 @@
 
           @yield('tituloPagina')
 
+          @include('layout.alerts')
           @yield('conteudo')
 
         </div>

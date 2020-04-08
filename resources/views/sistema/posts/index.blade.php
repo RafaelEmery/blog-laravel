@@ -85,6 +85,9 @@
                         <label for="detalhes-categoria">Categoria</label>
                         <input type="text" id="detalhes-categoria" class="form-control" readonly>
                     </div>
+
+                    <!-- Adicionar campo para imagem e tirar o ->nullable() -->
+
                 </div>
             </div>
             <div class="modal-footer">
@@ -142,7 +145,6 @@
             let modal = $(this)
 
             $.getJSON(button.data('get'),(dados) => {
-                console.log(dados)
                 $('#detalhes-titulo').val(dados.titulo)
                 $('#detalhes-autor').val(dados.autor)
                 $('#detalhes-palavrasChave').val(dados.palavrasChave)

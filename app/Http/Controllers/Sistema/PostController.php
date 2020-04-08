@@ -134,7 +134,7 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'O Destaque foi atualizado com sucesso!');
     }
 
-    public function alteraPropImagem($imagem) 
+    public function alteraPropImagem($dados) 
     {
         
     }
