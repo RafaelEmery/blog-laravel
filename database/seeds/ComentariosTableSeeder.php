@@ -14,6 +14,6 @@ class ComentariosTableSeeder extends Seeder
     {
         Comentario::truncate();
 
-        factory('App\Comentario', 3)->create();
+        factory('App\Comentario', 10)->create();
     }
 }

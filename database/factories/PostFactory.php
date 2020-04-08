@@ -10,6 +10,8 @@ $factory->define('App\Post', function (Faker $faker) {
         'titulo' => $faker->sentence,
         'autor' => $faker->name,
         'palavrasChave' => $faker->word,
-        'conteudo' => $faker->paragraph
+        'categoria' => $faker->word,
+        'conteudo' => $faker->paragraph,
+        'imagem' => $faker->word
     ];
 });

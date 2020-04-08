@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define('App\Comentario', function (Faker $faker) {
     return [
-        'post_id' => 2,
+        'post_id' => $faker->randomDigit,
         'autor' => $faker->name,
         'email' => $faker->sentence,
         'conteudo' => $faker->paragraph
