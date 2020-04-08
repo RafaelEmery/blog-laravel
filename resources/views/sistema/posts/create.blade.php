@@ -46,7 +46,7 @@
                 <textarea class="form-control" name="conteudo" id="conteudo" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <label for="imagem">Imagem</label>
+                <label for="imagem"><strong>Imagem</strong></label>
                 <input type="file" class="form-control-file" id="imagem" name="imagem">
                 <small><strong>ATENÇÃO:</strong>Esta será a imagem principal do Post.</small>
             </div>

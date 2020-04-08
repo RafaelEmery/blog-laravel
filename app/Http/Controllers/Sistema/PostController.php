@@ -42,13 +42,24 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required',
             'autor' => 'required',
+            'palavrasChave' => 'required',
+            'categoria' => 'required',
             'conteudo' => 'required'  
         ]);
 
-        //Fazer atribuição para a imagem e um $postNovo->update()
-
         $dados = $request->all();
-        $postNovo = Post::create($dados);
+
+        if ($request->hasFile('imagem')) {
+            $dados['imagem'] = '';
+            $post = Post::create($dados);
+        }
+        else {
+            return redirect()->back()->with('danger', 'Insira uma imagem!');
+        }
+
+        $dados = Self::alterarPropImagem($dados, $request->imagem, $post->id);
+        $post->update($dados);
+
         return redirect(route('sistema.posts.index'))->with('success', 'O Post foi criado com sucesso!');
     }
 
@@ -90,12 +101,17 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required',
             'autor' => 'required',
+            'palavrasChave' => 'required',
+            'categoria' => 'required',
             'conteudo' => 'required'  
         ]);
-        
-        //Depois fazer função para se trabalhar com a Imagem
 
         $dados = $request->all();
+
+        if ($request->hasFile('imagem')) {
+            $dados = Self::alterarPropImagem($dados, $request->imagem, $id);
+        }
+    
         $postEditado = Post::find($id);
         $postEditado->update($dados);
         
@@ -134,8 +150,15 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'O Destaque foi atualizado com sucesso!');
     }
 
-    public function alteraPropImagem($dados) 
-    {
-        
+    public function alterarPropImagem($dados, $imagem, $id) 
+    {   
+        $numero = $id;
+        $diretorio = '/imgBlog';
+        $extensao = $imagem->getClientOriginalExtension();
+        $nome = "Post_".$numero.".".$extensao;
+        $imagem->move(public_path().$diretorio, 'imgBlog/'.$nome);
+        $dados['imagem'] = $diretorio."/".$nome;
+
+        return $dados;
     }
 }

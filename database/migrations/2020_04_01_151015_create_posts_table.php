@@ -18,10 +18,10 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('autor');
-            $table->string('palavrasChave')->nullable();
-            $table->string('categoria')->nullable();
+            $table->string('palavrasChave');
+            $table->string('categoria');
             $table->text('conteudo');
-            $table->string('imagem')->nullable();
+            $table->string('imagem');
             $table->boolean('destaque')->default(false);
             $table->timestamps();
         });

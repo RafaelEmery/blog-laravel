@@ -62,7 +62,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalDetalhesLabel">Detalhes crud</h5>
+                <h5 class="modal-title font-weight-bold text-primary" id="modalDetalhesLabel">Informações do Post</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -70,23 +70,25 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 form-group">
-                        <label for="detalhes-titulo">Título</label>
+                        <label for="detalhes-titulo"><strong>Título</strong></label>
                         <input type="text" id="detalhes-titulo" class="form-control" readonly>
                     </div>
                     <div class="col-12 form-group">
-                        <label for="detalhes-autor">Autor</label>
+                        <label for="detalhes-autor"><strong>Autor</strong></label>
                         <input type="text" id="detalhes-autor" class="form-control" readonly>
                     </div>
                     <div class="col-12 form-group">
-                        <label for="detalhes-palavrasChave">Palavras Chave</label>
+                        <label for="detalhes-palavrasChave"><strong>Palavras Chave</strong></label>
                         <input type="text" id="detalhes-palavrasChave" class="form-control" readonly>
                     </div>
                     <div class="col-12 form-group">
-                        <label for="detalhes-categoria">Categoria</label>
+                        <label for="detalhes-categoria"><strong>Categoria</strong></label>
                         <input type="text" id="detalhes-categoria" class="form-control" readonly>
                     </div>
-
-                    <!-- Adicionar campo para imagem e tirar o ->nullable() -->
+                    <div class="col-12 form-group">
+                        <label for="detalhes-imagem"><strong>Imagem</strong></label>
+                        <img id="detalhes-imagem" class="img-responsive" style="max-width:428px; width:auto; height:auto;">
+                    </div>
 
                 </div>
             </div>
@@ -102,7 +104,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="modalDeletarLabel">Deletar Post</h5>
+              <h5 class="modal-title font-weight-bold text-primary" id="modalDeletarLabel">Deletar Post</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -145,11 +147,12 @@
             let modal = $(this)
 
             $.getJSON(button.data('get'),(dados) => {
+                console.log(dados)
                 $('#detalhes-titulo').val(dados.titulo)
                 $('#detalhes-autor').val(dados.autor)
                 $('#detalhes-palavrasChave').val(dados.palavrasChave)
                 $('#detalhes-categoria').val(dados.categoria)
-            
+                $('#detalhes-imagem').attr('src', dados.imagem)
             });
         })
 
