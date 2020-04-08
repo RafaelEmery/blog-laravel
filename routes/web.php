@@ -24,6 +24,9 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
     Route::resource('posts', 'PostController');
     Route::get('posts/alternarDestaque/{id}', ['as' => 'posts.destaque', 'uses' => 'PostController@alternarDestaque'] );
 
+    //Rotas para os comentários
+    Route::resource('comentarios', 'ComentarioController');
+
 });
 
 

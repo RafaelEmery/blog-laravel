@@ -15,4 +15,9 @@ class Post extends Model
         'imagem',
         'destaque'
     ];
+
+    public function comentarios() 
+    {
+        return $this->hasMany('App\Comentario');
+    }
 }
