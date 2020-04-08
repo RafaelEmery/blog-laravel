@@ -18,6 +18,7 @@ class CreateComentariosTable extends Migration
             $table->bigInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
             $table->string('autor');
+            $table->string('email');
             $table->text('conteudo');
             $table->timestamps();
         });

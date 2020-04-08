@@ -9,6 +9,7 @@ class Comentario extends Model
     protected $fillable = [
         'post_id',
         'autor',
+        'email',
         'conteudo'
     ];
 
