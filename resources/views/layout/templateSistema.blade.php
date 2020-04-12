@@ -58,7 +58,7 @@
 
       <!-- Nav Item - Mensagens -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href=" {{route('sistema.mensagens.index')}} ">
           <i class="fas fa-fw fa-envelope"></i>
           <span>Mensagens</span></a>
       </li>

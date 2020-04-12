@@ -14,8 +14,10 @@ class MensagemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return 'teste';
+    {   
+        $mensagens = Mensagem::all();
+
+        return view('sistema.mensagens.index', compact('mensagens'));
     }
 
     /**

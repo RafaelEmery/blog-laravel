@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->text('conteudo');
             $table->string('imagem');
             $table->boolean('destaque')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
