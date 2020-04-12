@@ -32,7 +32,6 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
 
     //Rotas para o rodapé
     Route::resource('rodape', 'RodapeController');
-
 });
 
 
