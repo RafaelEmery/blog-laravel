@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rodape extends Model
+class Mensagem extends Model
 {
     protected $fillable = [
-        'textoSobre',
-        'endereco',
-        'telefone',
+        'nome',
         'email',
-        'sitePessoal',
+        'assunto',
+        'conteudo'
     ];
 }

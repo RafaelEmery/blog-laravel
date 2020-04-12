@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sistema;
 
-use App\Rodape;
+use App\Mensagem;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RodapeController extends Controller
+class MensagemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class RodapeController extends Controller
      */
     public function index()
     {
-        //
+        return 'teste';
     }
 
     /**
@@ -41,10 +42,10 @@ class RodapeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function show(Rodape $rodape)
+    public function show(Mensagem $mensagem)
     {
         //
     }
@@ -52,10 +53,10 @@ class RodapeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rodape $rodape)
+    public function edit(Mensagem $mensagem)
     {
         //
     }
@@ -64,10 +65,10 @@ class RodapeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rodape  $rodape
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rodape $rodape)
+    public function update(Request $request, Mensagem $mensagem)
     {
         //
     }
@@ -75,10 +76,10 @@ class RodapeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rodape $rodape)
+    public function destroy(Mensagem $mensagem)
     {
         //
     }

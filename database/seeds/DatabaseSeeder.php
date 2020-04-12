@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('PostsTableSeeder');
         $this->call('ComentariosTableSeeder');
+        $this->call('MensagemsTableSeeder');
 
         // supposed to only apply to a single connection and reset it's self
 		// but I like to explicitly undo what I've done for clarity

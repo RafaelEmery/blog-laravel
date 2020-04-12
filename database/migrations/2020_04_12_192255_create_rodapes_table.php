@@ -15,6 +15,11 @@ class CreateRodapesTable extends Migration
     {
         Schema::create('rodapes', function (Blueprint $table) {
             $table->id();
+            $table->text('textoSobre');
+            $table->string('endereco');
+            $table->string('telefone');
+            $table->string('email');
+            $table->string('sitePessoal');
             $table->timestamps();
         });
     }

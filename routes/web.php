@@ -27,6 +27,12 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
     //Rotas para os comentários
     Route::resource('comentarios', 'ComentarioController');
 
+    //Rotas para as mensagens
+    Route::resource('mensagens', 'MensagemController');
+
+    //Rotas para o rodapé
+    Route::resource('rodape', 'RodapeController');
+
 });
 
 
