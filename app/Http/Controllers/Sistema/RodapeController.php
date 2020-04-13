@@ -15,7 +15,7 @@ class RodapeController extends Controller
      */
     public function index()
     {
-        return 'teste';
+        return view('sistema.rodape.index');
     }
 
     /**

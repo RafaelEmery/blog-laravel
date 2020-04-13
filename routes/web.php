@@ -20,6 +20,9 @@ Route::get('/', function () {
 //Grupo de rotas para o blog
 Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'], function() {
 
+    //Rota para entrar no admin
+    Route::get('/', 'AdminController@index');
+
     //Rotas para os Posts
     Route::resource('posts', 'PostController');
     Route::get('posts/alternarDestaque/{id}', ['as' => 'posts.destaque', 'uses' => 'PostController@alternarDestaque'] );
@@ -32,6 +35,9 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
 
     //Rotas para o rodapé
     Route::resource('rodape', 'RodapeController');
+
+    //Rota para a ajuda
+    Route::get('/ajuda', ['as' => 'ajuda.index', 'uses' => 'AjudaController@index']);
 });
 
 

@@ -72,7 +72,7 @@
 
       <!-- Nav Item - Rodapé -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href=" {{route('sistema.rodape.index')}} ">
           <i class="fas fa-fw fa-info-circle"></i>
           <span>Rodapé</span></a>
       </li>
@@ -86,7 +86,7 @@
 
       <!-- Nav Item - Ajuda -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href=" {{route('sistema.ajuda.index')}} ">
           <i class="fas fa-fw fa-question-circle"></i>
           <span>Ajuda</span></a>
       </li>
