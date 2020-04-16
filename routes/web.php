@@ -36,6 +36,10 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
     //Rotas para o rodapé
     Route::resource('rodape', 'RodapeController');
 
+    //Rotas para a lixeira
+    Route::resource('lixeira', 'LixeiraController');
+    Route::get('lixeira/restaurar/{$id}', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController@restaurar']);
+
     //Rota para a ajuda
     Route::get('/ajuda', ['as' => 'ajuda.index', 'uses' => 'AjudaController@index']);
 });

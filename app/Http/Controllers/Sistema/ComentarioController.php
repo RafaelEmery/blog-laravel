@@ -37,9 +37,16 @@ class ComentarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+        $comentario = Comentario::create($dados);
+
+        $comentario->update([
+            'post_id' => $id
+        ]);
+
+        return redirect()->back()->with('success', 'Seu comentário foi criado com sucesso!');
     }
 
     /**
@@ -48,9 +55,11 @@ class ComentarioController extends Controller
      * @param  \App\Comentario  $comentario
      * @return \Illuminate\Http\Response
      */
-    public function show(Comentario $comentario)
+    public function show($id)
     {
-        //
+        $dados = Comentario::find($id);
+
+        return json_encode($dados);
     }
 
     /**
@@ -82,8 +91,11 @@ class ComentarioController extends Controller
      * @param  \App\Comentario  $comentario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comentario $comentario)
+    public function destroy($id)
     {
-        //
+        $comentarioDeletado = Comentario::find($id);
+        $comentarioDeletado->delete();
+
+        return redirect()->back()->with('success', 'O Comentário foi deletado com sucesso!');
     }
 }

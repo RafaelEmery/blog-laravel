@@ -19,6 +19,10 @@ class Post extends Model
         'destaque'
     ];
 
+    protected $dates = [
+        'deleted_at'
+    ];
+
     public function comentarios() 
     {
         return $this->hasMany('App\Comentario');

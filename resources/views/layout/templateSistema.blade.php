@@ -79,7 +79,7 @@
 
       <!-- Nav Item - Lixeira -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href=" {{route('sistema.lixeira.index')}} ">
           <i class="fas fa-fw fa-trash"></i>
           <span>Lixeira</span></a>
       </li>
