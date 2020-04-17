@@ -1,5 +1,114 @@
 @extends('layout.templateSistema')
 
+@section('tituloPagina')
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Informações do Rodapé</h1>
+    <a  href="#modalEditar" data-toggle="modal" data-get="{{route('sistema.rodape.show', $rodape->id)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
+</div>
+
+@endsection
+
 @section('conteudo')
-    <h1>testeeee</h1>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Criar um novo Rodapé</h6>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="textoSobre"><strong>Texto "Sobre Nós"</strong></label>
+            <textarea class="form-control" name="textoSobre" rows="5" readonly> {{ $rodape->textoSobre}} </textarea>
+        </div>
+        <div class="form-group">
+            <label for="endereco"><strong>Endereço</strong></label>
+            <input class="form-control" type="text" name="endereco" value=" {{ $rodape->endereco }} " readonly>
+        </div>
+        <div class="form-group">
+            <label for="telefone"><strong>Telefone</strong></label>
+            <input class="form-control" type="text" name="telefone" value=" {{ $rodape->telefone }} " readonly>
+        </div>
+        <div class="form-group">
+            <label for="email"><strong>E-mail</strong></label>
+            <input class="form-control" type="text" name="email" value=" {{ $rodape->email }} " readonly>
+        </div>
+        <div class="form-group">
+            <label for="sitePessoal"><strong>Site Pessoal</strong></label>
+            <input class="form-control" type="text" name="sitePessoal" value=" {{ $rodape->sitePessoal }} " readonly>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditarTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Editar Rodapé</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editar-rodape" action=" {{route('sistema.rodape.update', $rodape->id)}} " method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="textoSobre"><strong>Texto "Sobre Nós"</strong></label>
+                        <textarea class="form-control" name="textoSobre" id="textoSobre" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco"><strong>Endereço</strong></label>
+                        <input class="form-control" type="text" id="endereco" name="endereco">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone"><strong>Telefone</strong></label>
+                        <input class="form-control" type="text" id="telefone" name="telefone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><strong>E-mail</strong></label>
+                        <input class="form-control" type="text" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="sitePessoal"><strong>Site Pessoal</strong></label>
+                        <input class="form-control" type="text" id="sitePessoal" name="sitePessoal">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="editar-rodape" class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('script')
+
+<script>
+    window.onload = () => {
+        $('#modalEditar').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            let modal = $(this)
+
+            console.log("Tô aqui!")
+
+            $.getJSON(button.data('get', (dados) => {
+                console.log(dados)
+
+                modal.find('#textoSobre').html(dados.textoSobre)
+                modal.find('#endereco').val(dados.endereco)
+                modal.find('#telefone').val(dados.telefone)
+                modal.find('#email').val(dados.email)
+                modal.find('#sitePessoal').val(dados.sitePessoal)
+                modal.find("#editar-rodape").attr('action',  button.data('get'));
+            })
+        });
+    }
+
+</script>
+
+
 @endsection

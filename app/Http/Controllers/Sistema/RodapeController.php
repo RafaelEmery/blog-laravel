@@ -14,8 +14,15 @@ class RodapeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('sistema.rodape.index');
+    {   
+        $rodape = Rodape::first();
+
+        if(!isset($rodape)) {
+            return view('sistema.rodape.create')
+            ->with('danger', 'Você ainda não possui as informações cadastradas. Por favor, cadastre agora!');
+        }
+
+        return view('sistema.rodape.index', compact('rodape'));
     }
 
     /**
@@ -36,7 +43,11 @@ class RodapeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->all();
+        Rodape::create($dados);
+
+        return redirect(route('sistema.rodape.index'))
+        ->with('success', 'O Rodapé foi criado com sucesso!');
     }
 
     /**
@@ -45,9 +56,11 @@ class RodapeController extends Controller
      * @param  \App\Rodape  $rodape
      * @return \Illuminate\Http\Response
      */
-    public function show(Rodape $rodape)
+    public function show($id)
     {
-        //
+        $rodape = Rodape::find($id);
+
+        return json_encode($rodape);
     }
 
     /**
@@ -68,9 +81,14 @@ class RodapeController extends Controller
      * @param  \App\Rodape  $rodape
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rodape $rodape)
-    {
-        //
+    public function update(Request $request, $id)
+    {   
+        $dados = $request->all();
+        $rodape = Rodape::find($id);
+        $rodape->update($dados);
+
+        return redirect()->back()
+        ->with('success', 'O Rodapé foi editado com sucesso!');
     }
 
     /**
