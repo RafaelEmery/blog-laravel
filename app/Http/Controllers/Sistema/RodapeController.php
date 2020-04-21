@@ -60,6 +60,8 @@ class RodapeController extends Controller
     {
         $rodape = Rodape::find($id);
 
+        //dd($rodape);
+
         return json_encode($rodape);
     }
 

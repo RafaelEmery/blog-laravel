@@ -38,7 +38,11 @@ class MensagemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->all();
+        $novaMensagem = Mensagem::create($dados);
+
+        return redirect()->back()
+        ->with('success', 'Sua mensagem foi enviada!');
     }
 
     /**
@@ -47,9 +51,11 @@ class MensagemController extends Controller
      * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function show(Mensagem $mensagem)
+    public function show($id)
     {
-        //
+        $dados = Mensagem::find($id);
+
+        return json_encode($dados);
     }
 
     /**
@@ -81,8 +87,12 @@ class MensagemController extends Controller
      * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mensagem $mensagem)
+    public function destroy($id)
     {
-        //
+        $mensagemDeletada = Mensagem::find($id);
+        $mensagemDeletada->delete();
+
+        return redirect()->back()
+        ->with('success', 'A mensagem foi deletada com sucesso!');
     }
 }

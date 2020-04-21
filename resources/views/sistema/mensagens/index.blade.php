@@ -20,7 +20,7 @@
         <!-- Collapsable Card Example -->
         <div class="card shadow mb-4">
             <!-- Card Header - Accordion -->
-            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
                 <h6 class="m-0 font-weight-bold text-primary"> {{ $mensagem->assunto }} </h6>
             </a>
             <!-- Card Content - Collapse -->
@@ -40,6 +40,12 @@
                             <textarea id="conteudo" class="form-control" rows="8" readonly> {{ $mensagem->conteudo }} </textarea>
                         </div>
                     </div>
+                    <a href=" {{route('sistema.mensagens.destroy', $mensagem->id)}} " class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                        </span>
+                        <span class="text">Excluir</span>
+                    </a>
                 </div>
             </div>
         </div>

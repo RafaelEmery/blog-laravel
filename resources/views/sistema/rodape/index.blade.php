@@ -4,7 +4,7 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Informações do Rodapé</h1>
-    <a  href="#modalEditar" data-toggle="modal" data-get="{{route('sistema.rodape.show', $rodape->id)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
+    <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.rodape.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
 </div>
 
 @endsection
@@ -13,7 +13,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Criar um novo Rodapé</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Rodapé cadastrado</h6>
     </div>
     <div class="card-body">
         <div class="form-group">
@@ -44,13 +44,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Editar Rodapé</h5>
+                <h5 class="modal-title" id="modalEditarTitle">Editar Rodapé</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editar-rodape" action=" {{route('sistema.rodape.update', $rodape->id)}} " method="POST" enctype="multipart/form-data">
+                <form id="editar-rodape" action=" {{route('sistema.rodape.update', 1)}} " method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -95,7 +95,7 @@
 
             console.log("Tô aqui!")
 
-            $.getJSON(button.data('get', (dados) => {
+            $.getJSON(button.data('url', (dados) => {
                 console.log(dados)
 
                 modal.find('#textoSobre').html(dados.textoSobre)
@@ -104,7 +104,7 @@
                 modal.find('#email').val(dados.email)
                 modal.find('#sitePessoal').val(dados.sitePessoal)
                 modal.find("#editar-rodape").attr('action',  button.data('get'));
-            })
+            });
         });
     }
 
