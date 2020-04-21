@@ -22,22 +22,27 @@ class LixeiraController extends Controller
 
     public function destroy($id)
     {
-        $postDeletado = Post::onlyTrashed()->where('id', $id)->get();
-        
-        //Para deletar todos os models relacionados: ->history()->forceDelete()
-        $postDeletado->forceDelete();
+        $postDeletado = Post::onlyTrashed()->where('id', $id)->forceDelete();
 
         return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
     }
 
     public function restaurar($id) 
     {
-        $postRestaurado = Post::onlyTrashed()->where('id', $id)->get();
-
-        dd($postRestaurado);
-
-        $postRestaurado->restore();
+        $postRestaurado = Post::onlyTrashed()->where('id', $id)->restore();
 
         return redirect()->back()->with('success', 'O Post foi restaurado com sucesso!');
+    }
+
+    public function esvaziarLixeira() 
+    {   
+        $lixeira = Post::onlyTrashed()->get();
+
+        foreach($lixeira as $item) {
+            $item->forceDelete();
+        }
+
+        return redirect()->back()
+        ->with('success', 'A Lixeira foi esvaziada com sucesso!');
     }
 }

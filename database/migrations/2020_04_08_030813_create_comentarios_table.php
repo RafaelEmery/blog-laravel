@@ -16,7 +16,7 @@ class CreateComentariosTable extends Migration
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('post_id')->unsigned();
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->string('autor');
             $table->string('email');
             $table->text('conteudo');

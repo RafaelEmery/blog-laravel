@@ -95,7 +95,7 @@
 
             console.log("Tô aqui!")
 
-            $.getJSON(button.data('url', (dados) => {
+            $.getJSON(button.data('url'), (dados) => {
                 console.log(dados)
 
                 modal.find('#textoSobre').html(dados.textoSobre)
@@ -104,8 +104,8 @@
                 modal.find('#email').val(dados.email)
                 modal.find('#sitePessoal').val(dados.sitePessoal)
                 modal.find("#editar-rodape").attr('action',  button.data('get'));
-            });
-        });
+            })  
+        })
     }
 
 </script>
