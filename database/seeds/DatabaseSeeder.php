@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call('ComentariosTableSeeder');
         $this->call('MensagemsTableSeeder');
         $this->call('RodapeTableSeeder');
+        factory('App\User', 1)->create();
 
         // supposed to only apply to a single connection and reset it's self
 		// but I like to explicitly undo what I've done for clarity
