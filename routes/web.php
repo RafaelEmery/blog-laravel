@@ -47,3 +47,7 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
