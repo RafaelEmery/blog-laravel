@@ -18,8 +18,7 @@ class RodapeController extends Controller
         $rodape = Rodape::first();
 
         if(!isset($rodape)) {
-            return view('sistema.rodape.create')
-            ->with('danger', 'Você ainda não possui as informações cadastradas. Por favor, cadastre agora!');
+            return redirect(route('sistema.rodape.create'))->with('danger', 'Você ainda não possui as informações cadastradas. Por favor, cadastre agora!');
         }
 
         return view('sistema.rodape.index', compact('rodape'));
@@ -32,7 +31,7 @@ class RodapeController extends Controller
      */
     public function create()
     {
-        //
+        return view('sistema.rodape.create');
     }
 
     /**

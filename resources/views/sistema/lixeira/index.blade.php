@@ -39,7 +39,7 @@
                     <tr>
                         <td> {{ $post->titulo }} </td>
                         <td> {{ $post->autor}} </td>
-                        <td>
+                        <td style="text-align:center;">
                             <a href=" {{route('sistema.lixeira.restaurar', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-arrow-circle-up fa-sm"></i></a>
                             <a href="#modalDeletar" data-toggle="modal" data-get=" {{route('sistema.lixeira.destroy', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
                         </td>

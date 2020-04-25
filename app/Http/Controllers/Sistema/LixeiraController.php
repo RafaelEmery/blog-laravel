@@ -24,14 +24,16 @@ class LixeiraController extends Controller
     {
         $postDeletado = Post::onlyTrashed()->where('id', $id)->forceDelete();
 
-        return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
+        return redirect()->back()
+        ->with('success', 'O Post foi deletado com sucesso!');
     }
 
     public function restaurar($id) 
     {
         $postRestaurado = Post::onlyTrashed()->where('id', $id)->restore();
 
-        return redirect()->back()->with('success', 'O Post foi restaurado com sucesso!');
+        return redirect()->back()
+        ->with('success', 'O Post foi restaurado com sucesso!');
     }
 
     public function esvaziarLixeira() 

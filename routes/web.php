@@ -37,7 +37,7 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
     Route::resource('rodape', 'RodapeController');
 
     //Rotas para a lixeira
-    Route::get('lixeira/{$id}/restaurar', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController@restaurar']);
+    Route::get('lixeira/restaurar/{id}', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController@restaurar']);
     Route::get('lixeira/esvaziarLixeira', ['as' => 'lixeira.esvaziar', 'uses' => 'LixeiraController@esvaziarLixeira']);
     Route::resource('lixeira', 'LixeiraController');
 
