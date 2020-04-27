@@ -60,7 +60,8 @@ class PostController extends Controller
         $dados = Self::alterarPropImagem($dados, $request->imagem, $post->id);
         $post->update($dados);
 
-        return redirect(route('sistema.posts.index'))->with('success', 'O Post foi criado com sucesso!');
+        return redirect(route('sistema.posts.index'))
+        ->with('success', 'O Post foi criado com sucesso!');
     }
 
     /**
@@ -115,7 +116,8 @@ class PostController extends Controller
         $postEditado = Post::find($id);
         $postEditado->update($dados);
         
-        return redirect(route('sistema.posts.index'))->with('success', 'O Post foi editado com sucesso!');
+        return redirect(route('sistema.posts.index'))
+        ->with('success', 'O Post foi editado com sucesso!');
     }
 
     /**
@@ -129,25 +131,35 @@ class PostController extends Controller
         $postDeletado = Post::find($id);
         $postDeletado->delete();
 
-        return redirect()->back()->with('success', 'O Post foi deletado com sucesso!');
+        return redirect()->back()
+        ->with('success', 'O Post foi deletado com sucesso!');
     }
 
     public function alternarDestaque($id) 
     {   
-        $postEncontrado = Post::find($id);
+        $posts = Post::all();
 
-        if ($postEncontrado->destaque) {
-            $postEncontrado->update([ 
-                'destaque' => false
-            ]);
-        }
-        else {
-            $postEncontrado->update([ 
-                'destaque' => true
-            ]); 
+        foreach ($posts as $post) {
+            if ($post->id == $id) {
+                if($post->destaque) {
+                    return redirect()->back()
+                    ->with('danger', 'Este Post já está em destaque!');
+                }
+                else {
+                    $post->update([
+                        'destaque' => true
+                    ]);
+                }
+            }
+            else {
+                $post->update([
+                    'destaque' => false
+                ]);
+            }
         }
 
-        return redirect()->back()->with('success', 'O Destaque foi atualizado com sucesso!');
+        return redirect()->back()
+        ->with('success', 'O Post foi destacado com sucesso!');
     }
 
     public function alterarPropImagem($dados, $imagem, $id) 

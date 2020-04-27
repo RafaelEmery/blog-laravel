@@ -34,11 +34,11 @@
                 <label for="categoria"><strong>Categoria</strong></label>
                 <select class="form-control" id="categoria" name="categoria">
                     <option></option>
-                    <option>Programação</option>
-                    <option>Universidade</option>
-                    <option>Vida</option>
-                    <option>Entreterimento</option>
-                    <option>Esportes</option>
+                    <option value="programacao">Programação</option>
+                    <option value="universidade">Universidade</option>
+                    <option value="vida">Vida</option>
+                    <option value="entreterimento">Entreterimento</option>
+                    <option value="esportes">Esportes</option>
                 </select>
             </div>
             <div class="form-group">
@@ -48,7 +48,7 @@
             <div class="form-group">
                 <label for="imagem"><strong>Imagem</strong></label>
                 <input type="file" class="form-control-file" id="imagem" name="imagem">
-                <small><strong>ATENÇÃO:</strong>Esta será a imagem principal do Post.</small>
+                <small><strong>ATENÇÃO:</strong> Esta será a imagem principal do Post.</small>
             </div>
             <button type="submit" class="btn btn-success">Criar Post</button>
             <a type="button" class="btn btn-danger" href=" {{route('sistema.posts.index')}} ">Cancelar</a>
@@ -56,4 +56,13 @@
     </div>
 </div>
     
+@endsection
+
+@section('script')
+
+    <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('conteudo')
+    </script>
+
 @endsection
