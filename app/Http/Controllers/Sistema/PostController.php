@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sistema;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Aux\Imagem;
 use Validate;
 
 class PostController extends Controller
@@ -57,7 +58,7 @@ class PostController extends Controller
             return redirect()->back()->with('danger', 'Insira uma imagem!');
         }
 
-        $dados = Self::alterarPropImagem($dados, $request->imagem, $post->id);
+        $dados = Imagem::alterarImagem($dados, $request->imagem, $post->id);
         $post->update($dados);
 
         return redirect(route('sistema.posts.index'))
@@ -110,7 +111,7 @@ class PostController extends Controller
         $dados = $request->all();
 
         if ($request->hasFile('imagem')) {
-            $dados = Self::alterarPropImagem($dados, $request->imagem, $id);
+            $dados = Imagem::alterarImagem($dados, $request->imagem, $id);
         }
     
         $postEditado = Post::find($id);
@@ -160,17 +161,5 @@ class PostController extends Controller
 
         return redirect()->back()
         ->with('success', 'O Post foi destacado com sucesso!');
-    }
-
-    public function alterarPropImagem($dados, $imagem, $id) 
-    {   
-        $numero = $id;
-        $diretorio = '/imgBlog';
-        $extensao = $imagem->getClientOriginalExtension();
-        $nome = "Post_".$numero.".".$extensao;
-        $imagem->move(public_path().$diretorio, 'imgBlog/'.$nome);
-        $dados['imagem'] = $diretorio."/".$nome;
-
-        return $dados;
     }
 }
