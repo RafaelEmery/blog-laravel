@@ -17,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {   
-        $posts = Post::all();
+        $posts = Post::where(function($query) {
+            if (request()->get('categoria')) {
+                $query->categoria(request()->get('categoria'));
+            }
+        })->get();
 
         return view('sistema.posts.index', compact('posts'));
     }

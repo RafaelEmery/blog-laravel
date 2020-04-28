@@ -14,8 +14,21 @@
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Tabela de Posts</h6>
+    <div class="card-header py-1">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h6 class="m-0 font-weight-bold text-primary">Listagem de todos os Posts</h6>
+            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:10px;">
+                <i class="fas fa-filter"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href=" {{route('sistema.posts.index')}} ">Todas as categorias</a>
+                <a class="dropdown-item" href=" {{route('sistema.posts.index', ['categoria' => 'programacao'])}} ">Programação</a>
+                <a class="dropdown-item" href=" {{route('sistema.posts.index', ['categoria' => 'universidade'])}} ">Universidade</a>
+                <a class="dropdown-item" href=" {{route('sistema.posts.index', ['categoria' => 'entreterimento'])}} ">Entreterimento</a>
+                <a class="dropdown-item" href=" {{route('sistema.posts.index', ['categoria' => 'esportes'])}} ">Esportes</a>
+                <a class="dropdown-item" href=" {{route('sistema.posts.index', ['categoria' => 'vida'])}} ">Vida</a>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -42,7 +55,7 @@
                     <tr>
                         <td> {{ $post->titulo }} </td>
                         <td> {{ $post->autor}} </td>
-                        <td> {!! $post->destaque ? '<p class="text-success">Sim</p>' : '<p class="text-danger">Não</p>' !!} </td>
+                        <td> {!! $post->custom_destaque!!} </td>
                         <td>
                             <a href=" {{route('sistema.posts.destaque', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
                             <a href="#modalDetalhes" data-toggle="modal" data-get=" {{route('sistema.posts.show', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
