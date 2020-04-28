@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sistema;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Aux\Imagem;
 use Validate;
 
@@ -42,16 +43,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {   
-        $request->validate([
-            'titulo' => 'required',
-            'autor' => 'required',
-            'palavrasChave' => 'required',
-            'categoria' => 'required',
-            'conteudo' => 'required'  
-        ]);
-
         $dados = $request->all();
 
         if ($request->hasFile('imagem')) {
@@ -102,16 +95,8 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        $request->validate([
-            'titulo' => 'required',
-            'autor' => 'required',
-            'palavrasChave' => 'required',
-            'categoria' => 'required',
-            'conteudo' => 'required'  
-        ]);
-
         $dados = $request->all();
 
         if ($request->hasFile('imagem')) {
