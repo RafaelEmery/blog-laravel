@@ -105,7 +105,7 @@
                 <h4>Tem certeza disso?</h4>
             </div>
             <div class="modal-footer">
-                <form id="deletar-post" method="POST" enctype="multipart/form-data">
+                <form id="deletar-mensagem" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("delete")
                     <button type="submit" class="btn btn-danger">Deletar</button>
@@ -140,7 +140,7 @@
       //Deletar um registro
       $('#modalDeletar').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
-          this.querySelector("form#deletar-post").action = button.data('get')
+          this.querySelector("form#deletar-mensagem").action = button.data('get')
       })
 
     }

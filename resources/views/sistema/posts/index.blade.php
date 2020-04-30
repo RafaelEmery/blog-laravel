@@ -17,7 +17,7 @@
     <div class="card-header py-1">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h6 class="m-0 font-weight-bold text-primary">Listagem de todos os Posts</h6>
-            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:10px;">
+            <a class="btn btn-info btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:10px;">
                 <i class="fas fa-filter"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

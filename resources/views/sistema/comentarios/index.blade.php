@@ -11,51 +11,138 @@
 
 @section('conteudo')
 
+<!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Listagem de todos os Posts</h6>
+    <div class="card-header py-3">    
+        <h6 class="m-0 font-weight-bold text-primary">Listagem de todos os Comentários</h6>
     </div>
     <div class="card-body">
-        @foreach($posts as $post)
-        <!-- Collapsable Card Example -->
-        <div class="card shadow mb-4">
-            <!-- Card Header - Accordion -->
-            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary"> {{ $post->titulo }} </h6>
-            </a>
-            <!-- Card Content - Collapse -->
-            <div class="collapse show" id="collapseCardExample">
-                @foreach($post->comentarios as $comentario)
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 form-group">
-                            <label for="autor"><strong>Autor</strong></label>
-                            <input type="text" id="autor" class="form-control" value=" {{ $comentario->autor }} " readonly>
-                        </div>
-                        <div class="col-12 form-group">
-                            <label for="conteudo"><strong>Conteúdo</strong></label>
-                            <textarea id="conteudo" class="form-control" readonly> {{ $comentario->conteudo }} </textarea>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-info btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-info-circle"></i>
-                        </span>
-                        <span class="text">Ver e-mail</span>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-trash"></i>
-                        </span>
-                        <span class="text">Excluir</span>
-                    </a>
-                    <hr>
-                </div>
-                @endforeach
-            </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Post</th>
+                        <th>Autor</th>                                            
+                        <th style="width:20%">Ações</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <!-- Gambiarra para olhar a largura das colunas -->
+                        <th>Post</th>
+                        <th>Autor</th>
+                        <th>Ações</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @foreach($posts as $post)   
+                        @foreach($post->comentarios as $comentario)                
+                        <tr>
+                            <td> {{ $comentario->post->titulo }} </td>
+                            <td> {{ $comentario->autor }} </td>
+                            <td style="text-align:center;">
+                                <a href="#modalDetalhes" data-toggle="modal" data-get=" {{route('sistema.comentarios.show', $comentario->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-info"><i class="fas fa-info fa-sm"></i> &nbsp; Conteúdo</a>
+                                <a href="#modalDeletar" data-toggle="modal" data-get=" {{route('sistema.comentarios.destroy', $comentario->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-danger botao-tabela"><i class="fas fa-trash fa-sm"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endforeach
+
+                </tbody>
+            </table>
         </div>
-        @endforeach
     </div>
 </div>
 
+<!-- Modal de Informações -->
+<div class="modal fade" id="modalDetalhes" tabindex="-1" role="dialog" aria-labelledby="modalDetalhesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold text-primary" id="modalDetalhesLabel">Informações do Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 form-group">
+                        <label for="detalhes-autor"><strong>Autor</strong></label>
+                        <input type="text" id="detalhes-autor" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-email"><strong>E-mail</strong></label>
+                        <input type="text" id="detalhes-email" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-conteudo"><strong>Conteudo</strong></label>
+                        <textarea class="form-control" id="detalhes-conteudo" cols="30" rows="5" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal deletar-->
+<div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="modalDeletarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold text-primary" id="modalDeletarLabel">Deletar Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    Você está deletando esta Comentário!
+                </div>
+                <h4>Tem certeza disso?</h4>
+            </div>
+            <div class="modal-footer">
+                <form id="deletar-comentario" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method("delete")
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('script')
+
+<script>
+
+    window.onload = () => {
+
+      $('#modalDetalhes').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          let modal = $(this)
+
+          $.getJSON(button.data('get'),(dados) => {
+              console.log(dados)
+              $('#detalhes-autor').val(dados.autor)
+              $('#detalhes-email').val(dados.email)
+              $('#detalhes-conteudo').val(dados.conteudo)
+          });
+      })
+
+      //Deletar um registro
+      $('#modalDeletar').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          this.querySelector("form#deletar-comentario").action = button.data('get')
+      })
+
+    }
+  </script>
+    
 @endsection
