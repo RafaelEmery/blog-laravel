@@ -46,7 +46,7 @@ class ComentarioController extends Controller
             'post_id' => $id
         ]);
 
-        return redirect()->back()->with('success', 'Seu comentário foi criado com sucesso!');
+        return redirect()->back();
     }
 
     /**

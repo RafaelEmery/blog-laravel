@@ -41,8 +41,7 @@ class MensagemController extends Controller
         $dados = $request->all();
         $novaMensagem = Mensagem::create($dados);
 
-        return redirect()->back()
-        ->with('success', 'Sua mensagem foi enviada!');
+        return redirect()->back();
     }
 
     /**
