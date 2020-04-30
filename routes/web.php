@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Grupo de rotas para o site
+Route::group(['as' => 'site.', 'prefix' => ''], function () {
+    
+    //Rota para o principal do site
+    Route::get('/', function() {
+        return view('site.index');
+    });
 });
 
 //Grupo de rotas para o blog
@@ -44,9 +49,6 @@ Route::group(['namespace'=> 'Sistema', 'as' => 'sistema.', 'prefix' => 'admin'],
     //Rota para a ajuda
     Route::get('/ajuda', ['as' => 'ajuda.index', 'uses' => 'AjudaController@index']);
 });
-
-
-
 
 Auth::routes();
 
