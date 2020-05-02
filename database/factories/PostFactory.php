@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define('App\Post', function (Faker $faker) {
     return [
         'titulo' => $faker->sentence,
+        'subtitulo' => $faker->sentence,
         'autor' => $faker->name,
         'palavrasChave' => $faker->word,
         'categoria' => $faker->word,

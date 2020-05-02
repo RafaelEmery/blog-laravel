@@ -44,19 +44,19 @@
                 <tfoot>
                     <tr>
                         <!-- Gambiarra para olhar a largura das colunas -->
-                        <th>Título</th>
-                        <th style="width:25%">Autor</th>
-                        <th style="width:10%">Destaque</th>
-                        <th style="width:20%">Ações</th>
+                        <th style="width:25%">Título</th>
+                        <th style="width:10%">Autor</th>
+                        <th style="width:3%">Destaque</th>
+                        <th style="width:13%">Ações</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($posts as $post)                        
                     <tr>
                         <td> {{ $post->titulo }} </td>
-                        <td> {{ $post->autor}} </td>
-                        <td> {!! $post->custom_destaque!!} </td>
-                        <td>
+                        <td> {{ $post->autor }} </td>
+                        <td style="text-align: center"> {!! $post->custom_destaque!!} </td>
+                        <td style="text-align: center">
                             <a href=" {{route('sistema.posts.destaque', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
                             <a href="#modalDetalhes" data-toggle="modal" data-get=" {{route('sistema.posts.show', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>
                             <a href=" {{route('sistema.posts.edit',$post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-warning botao-tabela"><i class="fas fa-edit fa-sm"></i></a>
@@ -85,6 +85,10 @@
                     <div class="col-12 form-group">
                         <label for="detalhes-titulo"><strong>Título</strong></label>
                         <input type="text" id="detalhes-titulo" class="form-control" readonly>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="detalhes-subtitulo"><strong>Subtítulo</strong></label>
+                        <input type="text" id="detalhes-subtitulo" class="form-control" readonly>
                     </div>
                     <div class="col-12 form-group">
                         <label for="detalhes-autor"><strong>Autor</strong></label>
@@ -160,8 +164,8 @@
             let modal = $(this)
 
             $.getJSON(button.data('get'),(dados) => {
-                console.log(dados)
                 $('#detalhes-titulo').val(dados.titulo)
+                $('#detalhes-subtitulo').val(dados.subtitulo)
                 $('#detalhes-autor').val(dados.autor)
                 $('#detalhes-palavrasChave').val(dados.palavrasChave)
                 $('#detalhes-categoria').val(dados.categoria)

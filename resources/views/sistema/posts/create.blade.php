@@ -23,6 +23,10 @@
                 <input class="form-control" type="text" id="titulo" name="titulo">
             </div>
             <div class="form-group">
+                <label for="subtitulo"><strong>Subtítulo</strong></label>
+                <input class="form-control" type="text" id="subtitulo" name="subtitulo">
+            </div>
+            <div class="form-group">
                 <label for="autor"><strong>Autor</strong></label>
                 <input class="form-control" type="text" id="autor" name="autor">
             </div>
