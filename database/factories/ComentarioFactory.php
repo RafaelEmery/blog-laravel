@@ -5,11 +5,13 @@
 use App\Comentario;
 use Faker\Generator as Faker;
 
-$factory->define('App\Comentario', function (Faker $faker) {
+$faker = \Faker\Factory::create('pt_BR');
+
+$factory->define('App\Comentario', function () use ($faker) {
     return [
         'post_id' => $faker->randomDigit,
-        'autor' => $faker->name,
-        'email' => $faker->sentence,
-        'conteudo' => $faker->paragraph
+        'autor' => $faker->firstname,
+        'email' => $faker->freeEmail,
+        'conteudo' => $faker->paragraph(3, true)
     ];
 });

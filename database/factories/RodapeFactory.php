@@ -5,12 +5,14 @@
 use App\Rodape;
 use Faker\Generator as Faker;
 
-$factory->define('App\Rodape', function (Faker $faker) {
+$faker = \Faker\Factory::create('pt_BR');
+
+$factory->define('App\Rodape', function () use ($faker) {
     return [
-        'textoSobre' => $faker->paragraph,
-        'endereco' => $faker->sentence,
-        'telefone' => $faker->phoneNumber,
-        'email' => $faker->email,
-        'sitePessoal' => $faker->sentence
+        'textoSobre' => $faker->paragraph(8, false),
+        'endereco' => $faker->streetAddress,
+        'telefone' => $faker->cellphoneNumber,
+        'email' => $faker->freeEmail,
+        'sitePessoal' => $faker->url
     ];
 });

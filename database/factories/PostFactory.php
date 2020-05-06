@@ -11,7 +11,7 @@ $factory->define('App\Post', function () use ($faker) {
     return [
         'titulo' => $faker->words(3, true),
         'subtitulo' => $faker->sentence,
-        'autor' => $faker->firstname('male'),
+        'autor' => $faker->firstname,
         'palavrasChave' => $faker->words(5, true),
         'categoria' => $faker->randomElement(['categoria 1', 'categoria 2', 'categoria 3']),
         'conteudo' => $faker->text(500),
