@@ -13,18 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Grupo de rotas para o site
-Route::group(['as' => 'site.', 'prefix' => ''], function () {
-    
-    //Rota para o principal do site
-    Route::get('/', function() {
-        return view('site.index');
-    })->name('home');
-});
-
 //Rotas para a autenticação
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Grupo de rotas para o site
+Route::group(['namespace' => 'Site', 'as' => 'site.', 'prefix' => ''], function () {
+    
+    //Rota para o principal do site
+    Route::get('/', ['as' => 'index', 'uses' => 'SiteController@index']);
+
+    //Rota para um post específico
+    Route::get('/post', ['as' => 'post', 'uses' => 'SiteController@post']);
+
+    //Rota para o Sobre Nós
+    Route::get('/sobre', ['as' => 'sobre', 'uses' => 'SiteController@sobre']);
+
+    //Rota para o Contato
+    Route::get('/contato', ['as' => 'contato', 'uses' => 'SiteController@contato']);
+});
 
 //Grupo de rotas para o blog
 Route::group(['namespace'=> 'Sistema', 'middleware' => 'auth', 'as' => 'sistema.', 'prefix' => 'admin'], function() {
@@ -54,4 +62,3 @@ Route::group(['namespace'=> 'Sistema', 'middleware' => 'auth', 'as' => 'sistema.
     Route::get('/ajuda', ['as' => 'ajuda.index', 'uses' => 'AjudaController@index']);
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
