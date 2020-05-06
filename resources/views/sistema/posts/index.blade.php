@@ -55,7 +55,7 @@
                     <tr>
                         <td> {{ $post->titulo }} </td>
                         <td> {{ $post->autor }} </td>
-                        <td style="text-align: center"> {!! $post->custom_destaque!!} </td>
+                        <td style="text-align: center"> {!! $post->custom_destaque !!} </td>
                         <td style="text-align: center">
                             <a href=" {{route('sistema.posts.destaque', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-success botao-tabela"><i class="fas fa-flag fa-sm"></i></a>
                             <a href="#modalDetalhes" data-toggle="modal" data-get=" {{route('sistema.posts.show', $post->id)}} " class="d-none d-sm-inline-block btn btn-sm btn-info botao-tabela"><i class="fas fa-info fa-sm"></i></a>

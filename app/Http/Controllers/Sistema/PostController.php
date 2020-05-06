@@ -46,14 +46,7 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {   
         $dados = $request->all();
-
-        if ($request->hasFile('imagem')) {
-            $dados['imagem'] = '';
-            $post = Post::create($dados);
-        }
-        else {
-            return redirect()->back()->with('danger', 'Insira uma imagem!');
-        }
+        $post = Post::create($dados);
 
         $dados = Imagem::alterarImagem($dados, $request->imagem, $post->id);
         $post->update($dados);

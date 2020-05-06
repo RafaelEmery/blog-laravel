@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="autor"><strong>Autor</strong></label>
-                <input class="form-control" type="text" id="autor" name="autor">
+                <input class="form-control" type="text" id="autor" name="autor" value=" {{ Auth::user()->name }} ">
             </div>
             <div class="form-group">
                 <label for="palavrasChave"><strong>Palavras Chave</strong></label>

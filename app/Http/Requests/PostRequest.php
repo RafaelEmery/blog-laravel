@@ -24,11 +24,13 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required',
+            'titulo' => 'required|min:10',
+            'subtitulo' => 'required|min:10',
             'autor' => 'required',
             'palavrasChave' => 'required',
             'categoria' => 'required',
-            'conteudo' => 'required',
+            'conteudo' => 'required|min:180',
+            'imagem' => 'required'
         ];
     }
 
@@ -36,10 +38,15 @@ class PostRequest extends FormRequest
     {
         return [
             'titulo.required' => 'Escreva o título do Post!',
+            'titulo.min' => 'O título deve possui mais que 10 letras!',
+            'subtitulo.required' => 'Escreva o subtítulo do Post!',
+            'subtitulo.min' => 'O subtítulo deve possui mais que 10 letras!',
             'autor.required' => 'Escreva o autor do Post!',
             'palavrasChave.required' => 'Escreva as palavras chave do Post!',
             'categoria.required' => 'Seleciona a categoria do Post!',
-            'conteudo.required' => 'Escreva o conteúdo do Post!'
+            'conteudo.required' => 'Escreva o conteúdo do Post!',
+            'conteudo.min' => 'Seu texto está muito pequeno. Escreva mais ou vá para o Twitter!',
+            'imagem.required' => 'Insira uma imagem!'
         ];
     }
 }

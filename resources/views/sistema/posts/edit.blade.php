@@ -30,6 +30,7 @@
             <div class="form-group">
                 <label for="autor"><strong>Autor</strong></label>
                 <input class="form-control" type="text" id="autor" name="autor" value=" {{ $postEditado->autor }} ">
+                <small><strong>ATENÇÃO:</strong> A ideia é manter o autor original, mas caso seja necessário, insira seu nome de usuário.</small>
             </div>
             <div class="form-group">
                 <label for="palavrasChave"><strong>Palavras Chave</strong></label>
@@ -39,11 +40,11 @@
                 <label for="categoria"><strong>Categoria</strong></label>
                 <select class="form-control" id="categoria" name="categoria">
                     <option></option>
-                    <option {{$postEditado->categoria == 'Programação' ? 'selected' : ''}}>Programação</option>
-                    <option {{$postEditado->categoria == 'Universidade' ? 'selected' : ''}}>Universidade</option>
-                    <option {{$postEditado->categoria == 'Vida' ? 'selected' : ''}}>Vida</option>
-                    <option {{$postEditado->categoria == 'Entreterimento' ? 'selected' : ''}}>Entreterimento</option>
-                    <option {{$postEditado->categoria == 'Esportes' ? 'selected' : ''}}>Esportes</option>
+                    <option {{$postEditado->categoria == 'programacao' ? 'selected' : ''}}>Programação</option>
+                    <option {{$postEditado->categoria == 'universidade' ? 'selected' : ''}}>Universidade</option>
+                    <option {{$postEditado->categoria == 'vida' ? 'selected' : ''}}>Vida</option>
+                    <option {{$postEditado->categoria == 'entreterimento' ? 'selected' : ''}}>Entreterimento</option>
+                    <option {{$postEditado->categoria == 'esportes' ? 'selected' : ''}}>Esportes</option>
                 </select>
             </div>
             <div class="form-group">
