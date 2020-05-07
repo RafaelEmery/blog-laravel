@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Sobre;
 
 class SiteController extends Controller
 {
@@ -22,8 +23,10 @@ class SiteController extends Controller
     }
 
     public function sobre()
-    {
-        return view('site.sobre');
+    {   
+        $info = Sobre::first();
+
+        return view('site.sobre', compact('info'));
     }
 
     public function contato()

@@ -21,13 +21,36 @@
 
 <!-- Main Content -->
 <div class="container">
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @if(isset($info))
+
+            <p style="text-align: justify">
+                {{ $info->textoSobre }}
+            </p>
+            <div style="text-align: center">
+                <p>
+                    <i class="fas fa-home"></i> &nbsp; {{ $info->endereco }}
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i> &nbsp; {{ $info->telefone }}
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i> &nbsp; {{ $info->email }}
+                </p>
+                <p>
+                    <i class="fas fa-wifi"></i> &nbsp; {{ $info->sitePessoal }}
+                </p>
+            </div>
+
+            @endif
+            
+            @component('site.componentes.mapa')
+                
+            @endcomponent
+
+        </div>
     </div>
-</div>
 </div>
 
 <hr>
