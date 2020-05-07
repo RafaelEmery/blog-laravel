@@ -37,9 +37,9 @@ class MensagemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $dados = $request->all();
-        $novaMensagem = Mensagem::create($dados);
+        $mensagem = Mensagem::create($dados);
 
         return redirect()->back();
     }
