@@ -26,7 +26,7 @@
     
     <!-- Post destacado -->
     <div class="post-preview">
-        <a href="post.html">
+        <a href=" {{ route('site.post', $postDestacado) }} ">
         <h2 class="post-title">
             {{ $postDestacado->titulo }}
         </h2>
@@ -39,12 +39,14 @@
         em {{ $postDestacado->custom_date }} </p>
         <small><span class="fas fa-thumbtack"></span>&nbsp;<i>Post destacado pela equipe RafaTalks</i></small>
     </div>
+
     <hr>
 
     <!-- Posts listados -->
     @foreach($posts as $post)
+
     <div class="post-preview">
-        <a href="post.html">
+        <a href=" {{ route('site.post', $post) }} ">
         <h2 class="post-title">
             {{ $post->titulo }}
         </h2>
@@ -56,7 +58,9 @@
         <a href="#">{{ $post->autor }}</a>
         em {{ $post->custom_date }} </p>
     </div>
+
     <hr>
+    
     @endforeach
 
     <!-- Pager -->

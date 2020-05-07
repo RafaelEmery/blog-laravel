@@ -16,9 +16,9 @@ class SiteController extends Controller
         return view('site.index', compact('posts', 'postDestacado'));
     }
 
-    public function post()
-    {
-        return view('site.post');
+    public function post(Post $post)
+    {   
+        return view('site.post', compact('post'));
     }
 
     public function sobre()

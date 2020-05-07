@@ -1,35 +1,12 @@
-@extends('layout.templateSite')
-
-@section('titulo', 'Contato')
-
-@section('conteudo')
-
-<!-- Page Header -->
-<header class="masthead" style="background-image: url('img/contact-bg.jpg')">
-<div class="overlay"></div>
-<div class="container">
-    <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="page-heading">
-        <h1>Contact Me</h1>
-        <span class="subheading">Have questions? I have answers.</span>
-        </div>
-    </div>
-    </div>
-</div>
-</header>
-
-<!-- Main Content -->
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
-        <form action=" {{route('sistema.mensagens.store')}} " method="POST" enctype="multipart/form-data" id="contactForm">
+        <form action=" {{route('sistema.comentarios.store', $post->id)}} " method="POST" enctype="multipart/form-data" id="contactForm">
             @csrf
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                     <label>Nome</label>
-                    <input type="text" name="nome" class="form-control" placeholder="Nome" id="nome" required data-validation-required-message="Insira seu nome.">
+                    <input type="text" name="autor" class="form-control" placeholder="Nome" id="nome" required data-validation-required-message="Insira seu nome.">
                     <p class="help-block text-danger"></p>
                 </div>
             </div>
@@ -37,13 +14,6 @@
                 <div class="form-group floating-label-form-group controls">
                     <label>E-mail</label>
                     <input type="email" name="email" class="form-control" placeholder="E-mail" id="email" required data-validation-required-message="Insira seu e-mail.">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group col-xs-12 floating-label-form-group controls">
-                    <label>Assunto</label>
-                    <input type="text" name="assunto" class="form-control" placeholder="Assunto" id="assunto" required data-validation-required-message="Insira o assunto.">
                     <p class="help-block text-danger"></p>
                 </div>
             </div>
@@ -66,4 +36,24 @@
 
 <hr>
 
-@endsection
+@foreach ($post->comentarios as $comentario)
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <h3 class="post-subtitle">
+                    {{ $comentario->autor }}
+                </h3>   
+                </a>
+                <p class="post-meta">
+                    {{ $comentario->conteudo }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endforeach
+
+<hr>
