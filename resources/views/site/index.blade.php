@@ -32,11 +32,12 @@
         </h2>
         <h3 class="post-subtitle">
             {{ $postDestacado->subtitulo }}
-        </h3>
+        </h3>   
         </a>
-        <p class="post-meta">Posted by
+        <p class="post-meta">Feito por
         <a href="#"> {{ $postDestacado->autor }} </a>
-        on  {{ $postDestacado->created_at }} </p>
+        em {{ $postDestacado->custom_date }} </p>
+        <small><span class="fas fa-thumbtack"></span>&nbsp;<i>Post destacado pela equipe RafaTalks</i></small>
     </div>
     <hr>
 
@@ -51,9 +52,9 @@
             {{ $post->subtitulo }}
         </h3>
         </a>
-        <p class="post-meta">Posted by
+        <p class="post-meta">Feito por
         <a href="#">{{ $post->autor }}</a>
-        on {{ $post->created_at }} </p>
+        em {{ $post->custom_date }} </p>
     </div>
     <hr>
     @endforeach

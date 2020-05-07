@@ -29,6 +29,11 @@ class Post extends Model
         return $this->destaque ? '<p class="text-success">Sim</p>' : '<p class="text-danger">Não</p>';
     }
 
+    public function getCustomDateAttribute()
+    {   
+        return $this->created_at->format('d/m/y');
+    }
+
     public function scopeCategoria($query, $categoria)
     {
         return $query->where('categoria', $categoria);
