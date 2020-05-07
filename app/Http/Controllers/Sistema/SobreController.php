@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Sistema;
 
-use App\Rodape;
+use App\Sobre;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RodapeController extends Controller
+class SobreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class RodapeController extends Controller
      */
     public function index()
     {   
-        $rodape = Rodape::first();
+        $sobre = Sobre::first();
 
-        if(!isset($rodape)) {
-            return redirect(route('sistema.rodape.create'))->with('danger', 'Você ainda não possui as informações cadastradas. Por favor, cadastre agora!');
+        if(!isset($sobre)) {
+            return redirect(route('sistema.sobre.create'))->with('danger', 'Você ainda não possui as informações cadastradas. Por favor, cadastre agora!');
         }
 
-        return view('sistema.rodape.index', compact('rodape'));
+        return view('sistema.sobre.index', compact('sobre'));
     }
 
     /**
@@ -31,7 +31,7 @@ class RodapeController extends Controller
      */
     public function create()
     {
-        return view('sistema.rodape.create');
+        return view('sistema.sobre.create');
     }
 
     /**
@@ -43,34 +43,34 @@ class RodapeController extends Controller
     public function store(Request $request)
     {
         $dados = $request->all();
-        Rodape::create($dados);
+        Sobre::create($dados);
 
-        return redirect(route('sistema.rodape.index'))
-        ->with('success', 'O Rodapé foi criado com sucesso!');
+        return redirect(route('sistema.sobre.index'))
+        ->with('success', 'O Sobre foi criado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\Sobre  $sobre
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $rodape = Rodape::find($id);
+        $sobre = Sobre::find($id);
 
-        //dd($rodape);
+        //dd($sobre);
 
-        return json_encode($rodape);
+        return json_encode($sobre);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\sobre  $sobre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rodape $rodape)
+    public function edit(sobre $sobre)
     {
         //
     }
@@ -79,14 +79,14 @@ class RodapeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rodape  $rodape
+     * @param  \App\sobre  $sobre
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {   
         $dados = $request->all();
-        $rodape = Rodape::find($id);
-        $rodape->update($dados);
+        $sobre = Sobre::find($id);
+        $sobre->update($dados);
 
         return redirect()->back()
         ->with('success', 'O Rodapé foi editado com sucesso!');
@@ -95,10 +95,10 @@ class RodapeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rodape  $rodape
+     * @param  \App\sobre  $sobre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rodape $rodape)
+    public function destroy(sobre $sobre)
     {
         //
     }

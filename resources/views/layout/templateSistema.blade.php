@@ -72,9 +72,9 @@
 
       <!-- Nav Item - Rodapé -->
       <li class="nav-item">
-        <a class="nav-link" href=" {{route('sistema.rodape.index')}} ">
+        <a class="nav-link" href=" {{route('sistema.sobre.index')}} ">
           <i class="fas fa-fw fa-info-circle"></i>
-          <span>Rodapé</span></a>
+          <span>Sobre Nós</span></a>
       </li>
 
       <!-- Nav Item - Lixeira -->

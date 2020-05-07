@@ -24,6 +24,7 @@
     <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
     
+    @if (isset($postDestacado))
     <!-- Post destacado -->
     <div class="post-preview">
         <a href=" {{ route('site.post', $postDestacado) }} ">
@@ -41,6 +42,7 @@
     </div>
 
     <hr>
+    @endif
 
     <!-- Posts listados -->
     @foreach($posts as $post)

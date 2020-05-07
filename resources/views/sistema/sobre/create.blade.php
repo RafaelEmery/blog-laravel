@@ -3,20 +3,20 @@
 @section('tituloPagina')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Informações do Rodapé</h1>
+    <h1 class="h3 mb-0 text-gray-800">Informações do Sobre</h1>
 </div>
 
 @endsection
 
 @section('conteudo')
 
-<!-- Formulário para criar um Rodapé -->
+<!-- Formulário para criar um Sobre -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Criar um novo Rodapé</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Criar um novo Sobre</h6>
     </div>
     <div class="card-body">
-        <form action=" {{route('sistema.rodape.store')}} " method="POST" enctype="multipart/form-data">
+        <form action=" {{route('sistema.sobre.store')}} " method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="textoSobre"><strong>Texto "Sobre Nós"</strong></label>
@@ -39,7 +39,7 @@
                 <input class="form-control" type="text" id="sitePessoal" name="sitePessoal">
             </div>
             <button type="submit" class="btn btn-success">Salvar</button>
-            <a type="button" class="btn btn-danger" href=" {{route('sistema.rodape.index')}} ">Cancelar</a>
+            <a type="button" class="btn btn-danger" href=" {{route('sistema.sobre.index')}} ">Cancelar</a>
         </form>
     </div>
 </div>

@@ -1,9 +1,9 @@
 <?php
 
-use App\Rodape;
+use App\Sobre;
 use Illuminate\Database\Seeder;
 
-class RodapeTableSeeder extends Seeder
+class SobreTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,8 +12,8 @@ class RodapeTableSeeder extends Seeder
      */
     public function run()
     {
-        Rodape::truncate();
+        Sobre::truncate(); 
 
-        factory('App\Rodape', 1)->create();
+        factory('App\Sobre', 1)->create();
     }
 }

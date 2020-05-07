@@ -55,7 +55,7 @@ Route::group(['namespace'=> 'Sistema', 'middleware' => 'auth', 'as' => 'sistema.
     Route::resource('mensagens', 'MensagemController');
 
     //Rotas para o rodapé
-    Route::resource('rodape', 'RodapeController');
+    Route::resource('sobre', 'SobreController');
 
     //Rotas para a lixeira
     Route::get('lixeira/restaurar/{id}', ['as' => 'lixeira.restaurar', 'uses' => 'LixeiraController@restaurar']);

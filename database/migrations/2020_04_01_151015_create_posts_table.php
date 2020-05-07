@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('categoria');
             $table->text('conteudo');
             $table->string('imagem');
+            $table->string('slug');
             $table->boolean('destaque')->default(false);
             $table->softDeletes();
             $table->timestamps();

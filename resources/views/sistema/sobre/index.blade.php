@@ -4,7 +4,7 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Informações do Rodapé</h1>
-    <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.rodape.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
+    <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.sobre.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
 </div>
 
 @endsection
@@ -18,23 +18,23 @@
     <div class="card-body">
         <div class="form-group">
             <label for="textoSobre"><strong>Texto "Sobre Nós"</strong></label>
-            <textarea class="form-control" name="textoSobre" rows="5" readonly> {{ $rodape->textoSobre}} </textarea>
+            <textarea class="form-control" name="textoSobre" rows="5" readonly> {{ $sobre->textoSobre}} </textarea>
         </div>
         <div class="form-group">
             <label for="endereco"><strong>Endereço</strong></label>
-            <input class="form-control" type="text" name="endereco" value=" {{ $rodape->endereco }} " readonly>
+            <input class="form-control" type="text" name="endereco" value=" {{ $sobre->endereco }} " readonly>
         </div>
         <div class="form-group">
             <label for="telefone"><strong>Telefone</strong></label>
-            <input class="form-control" type="text" name="telefone" value=" {{ $rodape->telefone }} " readonly>
+            <input class="form-control" type="text" name="telefone" value=" {{ $sobre->telefone }} " readonly>
         </div>
         <div class="form-group">
             <label for="email"><strong>E-mail</strong></label>
-            <input class="form-control" type="text" name="email" value=" {{ $rodape->email }} " readonly>
+            <input class="form-control" type="text" name="email" value=" {{ $sobre->email }} " readonly>
         </div>
         <div class="form-group">
             <label for="sitePessoal"><strong>Site Pessoal</strong></label>
-            <input class="form-control" type="text" name="sitePessoal" value=" {{ $rodape->sitePessoal }} " readonly>
+            <input class="form-control" type="text" name="sitePessoal" value=" {{ $sobre->sitePessoal }} " readonly>
         </div>
     </div>
 </div>
@@ -50,7 +50,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editar-rodape" action=" {{route('sistema.rodape.update', 1)}} " method="POST" enctype="multipart/form-data">
+                <form id="editar-sobre" action=" {{route('sistema.sobre.update', 1)}} " method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -76,7 +76,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" form="editar-rodape" class="btn btn-success">Salvar</button>
+                <button type="submit" form="editar-sobre" class="btn btn-success">Salvar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 modal.find('#telefone').val(dados.telefone)
                 modal.find('#email').val(dados.email)
                 modal.find('#sitePessoal').val(dados.sitePessoal)
-                modal.find("#editar-rodape").attr('action',  button.data('get'));
+                modal.find("#editar-sobre").attr('action',  button.data('get'));
             })  
         })
     }
