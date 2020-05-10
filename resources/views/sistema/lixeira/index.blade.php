@@ -3,7 +3,7 @@
 @section('tituloPagina')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Lixeira</h1>
+    <h1 class="h3 mb-0 text-gray-800"><strong>Lixeira</strong></h1>
     <a  href="{{route('sistema.lixeira.esvaziar')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-trash-restore-alt fa-sm"></i> &nbsp; Esvaziar Lixeira</a>
 </div>
 

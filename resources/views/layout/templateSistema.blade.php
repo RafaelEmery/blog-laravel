@@ -63,12 +63,12 @@
           <span>Mensagens</span></a>
       </li>
 
-      <!-- Nav Item - Usuários -->
+      {{-- <!-- Nav Item - Usuários -->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-user"></i>
           <span>Usuários</span></a>
-      </li>
+      </li> --}}
 
       <!-- Nav Item - Rodapé -->
       <li class="nav-item">
@@ -82,6 +82,13 @@
         <a class="nav-link" href=" {{route('sistema.lixeira.index')}} ">
           <i class="fas fa-fw fa-trash"></i>
           <span>Lixeira</span></a>
+      </li>
+
+       <!-- Nav Item - Lixeira -->
+       <li class="nav-item">
+        <a class="nav-link" href=" {{route('site.index')}} " target="_blank">
+          <i class="fas fa-fw fa-image"></i>
+          <span>Ver Site</span></a>
       </li>
 
       <!-- Nav Item - Ajuda -->

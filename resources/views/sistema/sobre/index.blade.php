@@ -3,7 +3,7 @@
 @section('tituloPagina')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Informações do Rodapé</h1>
+    <h1 class="h3 mb-0 text-gray-800">Informações do Sobre</h1>
     <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.sobre.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
 </div>
 
@@ -13,7 +13,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Rodapé cadastrado</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Sobre Nós cadastrado</h6>
     </div>
     <div class="card-body">
         <div class="form-group">

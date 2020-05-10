@@ -4,7 +4,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Ajuda</h1>
+  <h1 class="h3 mb-0 text-gray-800"><strong>Precisa de ajuda?</strong></h1>
   <a  href="https://rafaelemery.github.io" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-info"><i class="fas fa-info fa-sm"></i> &nbsp; Acesse o site do desenvolvedor</a>
 </div>
 
