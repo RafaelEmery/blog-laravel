@@ -47,10 +47,10 @@ Route::group(['namespace'=> 'Sistema', 'middleware' => 'auth', 'as' => 'sistema.
     Route::get('posts/alternarDestaque/{id}', ['as' => 'posts.destaque', 'uses' => 'PostController@alternarDestaque'] );
 
     //Rotas para os comentários
-    Route::resource('comentarios', 'ComentarioController');
+    Route::resource('comentarios', 'ComentarioController')->except('store');
 
     //Rotas para as mensagens
-    Route::resource('mensagens', 'MensagemController');
+    Route::resource('mensagens', 'MensagemController')->except('store');
 
     //Rotas para o rodapé
     Route::resource('sobre', 'SobreController');
