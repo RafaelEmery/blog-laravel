@@ -18,10 +18,6 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Gambiarra de rotas para o site
-//Route::post('/post/coment/store/{post_id}', ['as' => 'site.post.comment', 'uses' => 'Sistema\ComentarioController@store']);
-//Route::post('/contato/store/', ['as' => 'site.contato.store', 'uses' => 'Sistema\MensagemController@store']);
-
 //Grupo de rotas para o site
 Route::group(['namespace' => 'Site', 'as' => 'site.', 'prefix' => ''], function () {
     
@@ -30,12 +26,14 @@ Route::group(['namespace' => 'Site', 'as' => 'site.', 'prefix' => ''], function 
 
     //Rota para um post específico
     Route::get('/post/{post}', ['as' => 'post', 'uses' => 'SiteController@post']);
+    Route::post('/post/coment/store/{post_id}', ['as' => 'post.comment', 'uses' => 'Sistema\ComentarioController@store']);
 
     //Rota para o Sobre Nós
     Route::get('/sobre', ['as' => 'sobre', 'uses' => 'SiteController@sobre']);
 
     //Rota para o Contato
     Route::get('/contato', ['as' => 'contato', 'uses' => 'SiteController@contato']);
+    Route::post('/contato/store/', ['as' => 'contato.store', 'uses' => 'Sistema\MensagemController@store']);
 });
 
 //Grupo de rotas para o blog
