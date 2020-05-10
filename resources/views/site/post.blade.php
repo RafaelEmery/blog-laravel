@@ -5,7 +5,7 @@
 @section('conteudo')
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: {{asset($post->imagem)}} ">
+<header class="masthead" style="background-image: url('templateSite/img/post-bg.jpg'); ">
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
@@ -16,6 +16,7 @@
         <span class="meta">Feito por
             <a href="#">{{ $post->autor }}</a>
             em {{ $post->custom_date }} </span>
+            <p> Palavras chave: <i>{{ $post->palavrasChave }}</i> </p>
         </div>
     </div>
     </div>
@@ -28,7 +29,7 @@
     <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
        <p>
-           {{ $post->conteudo }}
+           {!! $post->conteudo !!}
        </p>
     </div>
     </div>

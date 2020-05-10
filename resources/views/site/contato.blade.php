@@ -5,14 +5,14 @@
 @section('conteudo')
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('templateSite/img/contact-bg.jpg')">
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading">
-        <h1>Contact Me</h1>
-        <span class="subheading">Have questions? I have answers.</span>
+        <h1>Entre em contato</h1>
+        <span class="subheading">Quer conversar, dar uma dica ou um feedback? Estou sempre aberto a uma interessante conversa!</span>
         </div>
     </div>
     </div>
@@ -23,7 +23,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+        <p style="text-align: justify;">Preencha os campos do formulário e clique em enviar que sua mensagem irá chegar ao Rafa. Após isso, espere alguns dias ou horas que será você será respondido!</p>
         <form action=" {{route('sistema.mensagens.store')}} " method="POST" enctype="multipart/form-data" id="contactForm">
             @csrf
             <div class="control-group">

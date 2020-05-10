@@ -5,14 +5,14 @@
 @section('conteudo')
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: {{asset('templateSite/img/home-bg.jpg')}};">
+<header class="masthead" style="background-image: url('templateSite/img/home-bg.jpg');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            <h1>Rafa Talks</h1>
+            <span class="subheading">Um blog que conta a vida do universitário brasileiro.</span>
             </div>
         </div>
         </div>
@@ -65,11 +65,7 @@
     
     @endforeach
 
-    <!-- Pager -->
-    <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-    </div>
-    </div>
+        </div>
     </div>
 </div>
 
