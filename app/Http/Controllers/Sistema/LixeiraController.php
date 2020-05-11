@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Sistema;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Post;
+use App\Models\Post;
 
 class LixeiraController extends Controller
 {

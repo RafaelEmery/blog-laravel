@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Post;
-use App\Sobre;
+use App\Models\Post;
+use App\Models\Sobre;
 
 class SiteController extends Controller
 {

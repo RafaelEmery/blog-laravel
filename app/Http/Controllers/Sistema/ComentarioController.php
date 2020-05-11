@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Sistema;
 
-use App\Comentario;
-use App\Post;
+use App\Models\Comentario;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Sobre;
+use App\Models\Sobre;
 use Illuminate\Database\Seeder;
 
 class SobreTableSeeder extends Seeder
@@ -14,6 +14,6 @@ class SobreTableSeeder extends Seeder
     {
         Sobre::truncate(); 
 
-        factory('App\Sobre', 1)->create();
+        factory('App\Models\Sobre', 1)->create();
     }
 }

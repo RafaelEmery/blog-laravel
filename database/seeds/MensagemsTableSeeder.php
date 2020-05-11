@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Mensagem;
+use App\Models\Mensagem;
 
 class MensagemsTableSeeder extends Seeder
 {
@@ -14,6 +14,6 @@ class MensagemsTableSeeder extends Seeder
     {
         Mensagem::truncate();
 
-        factory('App\Mensagem', 10)->create();
+        factory('App\Models\Mensagem', 10)->create();
     }
 }

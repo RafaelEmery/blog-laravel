@@ -2,12 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Mensagem;
 use Faker\Generator as Faker;
 
 $faker = \Faker\Factory::create('pt_BR');
 
-$factory->define('App\Mensagem', function () use ($faker) {
+$factory->define('App\Models\Mensagem', function () use ($faker) {
     return [
         'nome' => $faker->firstname,
         'email' => $faker->freeEmail,

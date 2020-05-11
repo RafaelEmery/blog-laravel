@@ -2,12 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Post;
 use Faker\Generator as Faker;
 
 $faker = \Faker\Factory::create('pt_BR');
 
-$factory->define('App\Post', function () use ($faker) {
+$factory->define('App\Models\Post', function () use ($faker) {
     return [
         'titulo' => $faker->words(3, true),
         'subtitulo' => $faker->sentence,

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Sistema;
 
-use App\Post;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Aux\Imagem;
-use Validate;
 
 class PostController extends Controller
 {

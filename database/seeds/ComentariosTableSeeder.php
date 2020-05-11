@@ -1,6 +1,6 @@
 <?php
 
-use App\Comentario;
+use App\Models\Comentario;
 use Illuminate\Database\Seeder;
 
 class ComentariosTableSeeder extends Seeder
@@ -14,6 +14,6 @@ class ComentariosTableSeeder extends Seeder
     {
         Comentario::truncate();
 
-        factory('App\Comentario', 10)->create();
+        factory('App\Models\Comentario', 10)->create();
     }
 }

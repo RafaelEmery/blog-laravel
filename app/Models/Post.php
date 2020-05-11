@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -60,6 +60,6 @@ class Post extends Model
     //Relacionamento One to Many
     public function comentarios() 
     {
-        return $this->hasMany('App\Comentario');
+        return $this->hasMany('App\Models\Comentario');
     }
 }
