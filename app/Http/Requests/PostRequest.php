@@ -30,7 +30,6 @@ class PostRequest extends FormRequest
             'palavrasChave' => 'required',
             'categoria' => 'required',
             'conteudo' => 'required|min:180',
-            'imagem' => 'required'
         ];
     }
 
@@ -46,7 +45,6 @@ class PostRequest extends FormRequest
             'categoria.required' => 'Seleciona a categoria do Post!',
             'conteudo.required' => 'Escreva o conteúdo do Post!',
             'conteudo.min' => 'Seu texto está muito pequeno. Escreva mais ou vá para o Twitter!',
-            'imagem.required' => 'Insira uma imagem!'
         ];
     }
 }
