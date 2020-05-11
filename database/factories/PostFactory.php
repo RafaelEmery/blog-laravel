@@ -12,7 +12,7 @@ $factory->define('App\Models\Post', function () use ($faker) {
         'subtitulo' => $faker->sentence,
         'autor' => $faker->firstname,
         'palavrasChave' => $faker->words(5, true),
-        'categoria' => $faker->randomElement(['programacao', 'universidade', 'vida', 'entreterimento', 'esportes']),
+        'categoria' => $faker->randomElement(['Programação', 'Universidade', 'Vida', 'Entreterimento', 'Esportes']),
         'conteudo' => $faker->text(500),
         'imagem' => $faker->imageUrl(600, 600, 'cats')
     ];
