@@ -5,7 +5,7 @@
 @section('conteudo')
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('templateSite/img/post-bg.jpg'); ">
+<header class="masthead" style="background-image: url( {{asset($post->imagem) }} ); ">
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
