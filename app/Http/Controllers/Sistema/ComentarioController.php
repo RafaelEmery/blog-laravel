@@ -38,14 +38,14 @@ class ComentarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id)
-    {
-        $dados = $request->all();
-        $comentario = Comentario::create($dados);
-
-        $comentario->update([
-            'post_id' => $id
+    {   
+        $comentario = Comentario::create([
+            'post_id' => $id,
+            'autor' => $request->autor,
+            'email' => $request->email,
+            'conteudo' => $request->conteudo
         ]);
-
+        
         return redirect()->back();
     }
 

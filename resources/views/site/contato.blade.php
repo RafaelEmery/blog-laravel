@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
         <p style="text-align: justify;">Preencha os campos do formulário e clique em enviar que sua mensagem irá chegar ao Rafa. Após isso, espere alguns dias ou horas que será você será respondido!</p>
-        <form action=" {{route('sistema.mensagens.store')}} " method="POST" enctype="multipart/form-data" id="contactForm">
+        <form action=" {{route('sistema.contato.store')}} " method="POST" enctype="multipart/form-data" id="contactForm">
             @csrf
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">

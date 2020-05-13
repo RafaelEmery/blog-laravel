@@ -6,7 +6,7 @@
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                     <label>Nome</label>
-                    <input type="text" name="autor" class="form-control" placeholder="Nome" id="nome" required data-validation-required-message="Insira seu nome.">
+                    <input type="text" name="autor" class="form-control" placeholder="Nome" id="autor" required data-validation-required-message="Insira seu nome.">
                     <p class="help-block text-danger"></p>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                     <label>Mensagem</label>
-                    <textarea rows="5" name="conteudo" class="form-control" placeholder="Mensagem" id="mensagem" required data-validation-required-message="Insira sua mensagem"></textarea>
+                    <textarea rows="5" name="conteudo" class="form-control" placeholder="Conteúdo" id="conteudo" required data-validation-required-message="Insira seu comentário."></textarea>
                     <p class="help-block text-danger"></p>
                 </div>
             </div>
