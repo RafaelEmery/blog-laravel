@@ -1,6 +1,6 @@
 @extends('layout.templateSite')
 
-@section('titulo', 'Post')
+@section('titulo', ' Rafa Talks - Post ')
 
 @section('conteudo')
 
@@ -25,18 +25,19 @@
 
 <!-- Post Content -->
 <article>
-<div class="container">
-    <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-       <p>
-           {!! $post->conteudo !!}
-       </p>
+    <div class="container">
+            <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p>
+                    {!! $post->conteudo !!}
+                </p>
+
+                <hr>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 </article>
 
-<hr>
 
 @component('site.componentes.comentario', ['post' => $post])
     

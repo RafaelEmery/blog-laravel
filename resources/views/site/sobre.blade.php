@@ -49,10 +49,10 @@
                 
             @endcomponent
 
+            <hr>
+
         </div>
     </div>
 </div>
-
-<hr>
 
 @endsection

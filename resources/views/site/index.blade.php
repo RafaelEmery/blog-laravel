@@ -36,7 +36,7 @@
         </h3>   
         </a>
         <p class="post-meta">Feito por
-        <a href="#"> {{ $postDestacado->autor }} </a>
+        <a href="#"> {{ $postDestacado->autor }}</a>
         em {{ $postDestacado->custom_date }} </p>
         <small><span class="fas fa-thumbtack"></span>&nbsp;<i>Post destacado pela equipe RafaTalks</i></small>
     </div>
@@ -64,11 +64,8 @@
     <hr>
     
     @endforeach
-
-        </div>
+    
     </div>
 </div>
-
-<hr>
 
 @endsection
