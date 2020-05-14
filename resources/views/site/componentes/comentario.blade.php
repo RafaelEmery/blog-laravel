@@ -37,35 +37,37 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h3>Comentários</h3>
-        </div>
-    </div>
-</div>
+@if(!$post->comentarios->isEmpty())
 
-<br>
-
-@foreach ($post->comentarios as $comentario)
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <h4 class="post-subtitle">
-                    {{ $comentario->autor }}
-                </h4>   
-                </a>
-                <p class="post-meta">
-                    {{ $comentario->conteudo }}
-                </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h3>Comentários</h3>
             </div>
         </div>
     </div>
-</div>
 
-@endforeach
+    <br>
+
+    @foreach ($post->comentarios as $comentario)
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <h4 class="post-subtitle">
+                        {{ $comentario->autor }}
+                    </h4>   
+                    </a>
+                    <p class="post-meta">
+                        {{ $comentario->conteudo }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endforeach
 
 <div class="container">
     <div class="row">
@@ -74,3 +76,5 @@
         </div>
     </div>
 </div>
+
+@endif

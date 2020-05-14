@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('subtitulo');
             $table->string('autor');
             $table->string('palavrasChave');
-            $table->enum('categoria', ['programacao', 'universidade', 'vida', 'entreterimento', 'esportes']);
+            $table->enum('categoria', ['Programação', 'Universidade', 'Vida', 'Entreterimento', 'Esportes']);
             $table->text('conteudo');
             $table->string('imagem');
             $table->string('slug');

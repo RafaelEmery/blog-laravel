@@ -17,6 +17,7 @@
             <a href="#">{{ $post->autor }}</a>
             em {{ $post->custom_date }} </span>
             <p> Palavras chave: <i>{{ $post->palavrasChave }}</i> </p>
+            <p> Categoria: <i>{{ $post->categoria }}</i> </p>
         </div>
     </div>
     </div>
