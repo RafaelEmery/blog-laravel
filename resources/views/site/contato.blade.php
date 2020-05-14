@@ -61,7 +61,7 @@
                 </div>
             </form>
 
-            <hr>
+            <hr style="margin-top: 33px;">
         </div>
     </div>
 </div>

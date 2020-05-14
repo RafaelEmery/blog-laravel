@@ -13,7 +13,7 @@ $factory->define('App\Models\Post', function () use ($faker) {
         'autor' => $faker->firstname,
         'palavrasChave' => $faker->words(5, true),
         'categoria' => $faker->randomElement(['Programação', 'Universidade', 'Vida', 'Entreterimento', 'Esportes']),
-        'conteudo' => $faker->text(500),
+        'conteudo' => $faker->text(2500),
         'imagem' => $faker->imageUrl(600, 600, 'cats')
     ];
 });
