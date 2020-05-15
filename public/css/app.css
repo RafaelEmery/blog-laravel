@@ -7,6 +7,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+/* Classes feitas por mim*/
+.box-inside-login {
+  border-radius: 50px !important; 
+}
+
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
