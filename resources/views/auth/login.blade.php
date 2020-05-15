@@ -49,11 +49,48 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
+
+<!-- Modal de Informações -->
+<div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="modalInfoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalInfoLabel"><strong>Não sabe como entrar?</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <ol>
+              <li>No terminal rode o seguinte comando: <br> <code>php artisan db:seed</code> </li>
+              <li>Será gerado na <i>UserFactory</i> um usuário Teste</li>
+              <li>Entre com suas credenciais padrão: <br> <strong>E-mail:</strong> teste@gmail.com <br> <strong>Senha:</strong> 123456789 </li>
+              <li>Boa sorte com o sistema!</li>
+            </ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger box-inside-login" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+@endsection
+
+@section('scripts')
+    
+<script>
+    window.onload = () => {
+      
+      console.log('Carregou!');
+
+      window.setTimeout(function () {
+        $('#modalInfo').modal('show')
+      }, 3000);         
+    }
+  </script>
 
 @endsection
