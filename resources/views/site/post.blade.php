@@ -15,9 +15,10 @@
         <h2 class="subheading"> {{ $post->subtitulo }} </h2>
         <span class="meta">Feito por
             <a href="#">{{ $post->autor }}</a>
-            em {{ $post->custom_date }} </span>
-            <p> Palavras chave: <i>{{ $post->palavrasChave }}</i> </p>
-            <p> Categoria: <i>{{ $post->categoria }}</i> </p>
+            em {{ $post->custom_date }} <br><br>
+            Palavras chave: <i>{{ $post->palavrasChave }}</i> <br><br>
+            Categoria: <a href=" {{route('site.index', ['categoria' => $post->categoria])}} "><i>{{ $post->categoria }}</i></a> <br><br>
+        </span>
         </div>
     </div>
     </div>

@@ -10,9 +10,13 @@ use App\Models\Sobre;
 class SiteController extends Controller
 {
     public function index()
-    {
-        $posts = Post::where('destaque', false)->latest()->get();
+    {   
         $postDestacado = Post::where('destaque', true)->first();
+        $posts = Post::where(function($query) {
+            if (request()->get('categoria')) {
+                $query->categoria(request()->get('categoria'));
+            }
+        })->where('destaque', false)->get();
 
         return view('site.index', compact('posts', 'postDestacado'));
     }
