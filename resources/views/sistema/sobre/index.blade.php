@@ -3,8 +3,8 @@
 @section('tituloPagina')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Informações do Sobre</h1>
-    <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.sobre.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Rodapé</a>
+    <h1 class="h3 mb-0 text-gray-800"><strong>Informações do Sobre</strong></h1>
+    <a  href="#modalEditar" data-toggle="modal" data-url="{{route('sistema.sobre.show', 1)}}" class="d-none d-sm-inline-block btn btn-sm btn-warning"><i class="fas fa-edit fa-sm"></i> &nbsp; Editar Sobre Nós</a>
 </div>
 
 @endsection
