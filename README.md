@@ -1,79 +1,71 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Sobre o projeto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Consiste em um projeto pessoal de um blog no qual o usuário pode fazer diversas modificações no conteúdo do site, tais quais: criar, consultar, atualizar e deletar posts, e editar informações contidas no site. Em outras palavras, pode ser considerado como um CMS (sistema de gestão de conteúdo).
 
-## About Laravel
+## Propósito do projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A ideia do projeto é basicamente conseguir aplicar conceitos e boas praticas novas em um projeto real, para que o aprendizado seja fixado. Abaixo, temos alguns exemplos e aprendizados obtidos neste projeto.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Algumas das boas práticas e recursos do Laravel usados
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Relacionamento One To Many
 
-## Learning Laravel
+# Factories e Seeders
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Accessors
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Local Scopes
 
-## Laravel Sponsors
+# Request
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Autênticação de usuário
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
 
-## Contributing
+## Abrindo o projeto
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Primeiro, clone este repositório para a sua máquina
 
-## Code of Conduct
+Após isso, talvez você precise rodar os seguintes comandos na pasta do projeto:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+composer update
 
-## Security Vulnerabilities
+cp .env.example .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan key:generate
 
-## License
+E para ele funcionar localmente, digite
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan serve
+
+## URLs do projeto
+
+Para o site, pode-se usar:
+- '/sobre'
+- '/contato'
+- '/admin'
+
+Para o sistema adminstrativo:
+- '/admin/posts'
+- '/admin/comentarios'
+- '/admin/mensagens'
+- '/admin/sobre'
+- '/admin/lixeira'
+- '/admin/ajuda'
+
+## Blog
+
+Na página inicial, temos uma listagem das postagens que estão no banco de dados. A primeira postagem sempre será a Destacada pelo usuário que administra o Blog e também existe a opção de realizar a listagem de acordo com sua categoria. 
+
+(Aqui ficará a imagem do blog)
+
+## Post
+
+Cada postagem possui uma imagem principal que fica ao fundo e a opção e exibição de comentários.
+
+(Aqui ficará a imagem de um Post)
+
+## Sistema Adminstrativo
+
+A listagem é feita por meio de tabelas para as principais funcionalidades. Para o caso das postagens, existem cinco ações que o usuário pode tomar: criar, destacar, consultar, editar e enviar para a Lixeira.
+
+
