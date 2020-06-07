@@ -1,16 +1,18 @@
-## Sobre o projeto
+## About the blog
 
-Consiste em um projeto pessoal de um blog no qual o usuário pode fazer diversas modificações no conteúdo do site, tais quais: criar, consultar, atualizar e deletar posts, e editar informações contidas no site. Em outras palavras, pode ser considerado como um CMS (sistema de gestão de conteúdo).
+Basically, is a personal project using Laravel 6 and Bootstrap 4 which the user can do some basic operations at the blog content. The actions are: create, show, update and delete posts e creating/updating other informations. In other words, you can see this project as a CMS (Content Managment System).
 
-## Instalando e rodando o projeto
+<strong>The language of the blog is portuguese (pt-BR)</strong>
 
-Primeiro, clone este repositório para a sua máquina
+## Install and execute the blog
+
+First of all, you have to clone this repo.
 
 ````
 git clone https://github.com/RafaelEmery/blog-laravel.git
 ````
 
-Após isso, talvez você precise rodar os seguintes comandos na pasta do projeto:
+Then you might have to use the commands below to execute properly.
 
 ````
 composer update
@@ -20,34 +22,35 @@ cp .env.example .env
 php artisan key:generate
 ````
 
-Para ele funcionar localmente:
+To execute in localhost.
 
 ````
 php artisan serve
 ````
-Para rodar as migrações:
+
+To migrate the database.
 
 ````
 php artisan migrate
 ```` 
 
-Para popular as tabelas:
+To seed the tables using Seeders and Faker
 
 ````
 php artisan db:seed
 ````
 
-## Algumas das boas práticas e recursos do Laravel usados
+## Some good practices and Laravel's hacks/tricks used
 
-A ideia do projeto é basicamente conseguir aplicar conceitos e boas praticas novas em um projeto real, para que o aprendizado seja fixado. Abaixo, temos alguns exemplos e aprendizados obtidos neste projeto.
+The objective of this project is to be able to apply some concepts and good practices/hacks to secure that i'm learning the right way to code with PHP and Laravel! See some examples:
 
 #### Factories e Seeders
-Usadas em todas as tabelas para gerar registros falsos de teste. Foi usada a biblioteca [Faker](https://github.com/fzaninotto/Faker) e parte dos dados foram gerados em Português.
+Applied in all Models and migrations to generate fake data for testing functions, methods and operations. I used the [Faker](https://github.com/fzaninotto/Faker) library and part of the data was generated in portuguese (pt-BR).
 
 #### Accessors
-Usados para exibir dados diferentes de como estão registrados no Banco de Dados:
+Laravel resource used to show custom data:
 
-````
+````php
 //Retorna a data de criação em outro formato
 public function getCustomDateAttribute() {   
 	return $this->created_at->format('d/m/y');
@@ -58,9 +61,9 @@ public function getCustomDateAttribute() {
 ````
 
 #### Local Scopes
-Usados para fazer filtragens de postagens por categorias
+Functions to search data and filter posts by category:
 
-````
+````php
 //No Model Post.php
 public function scopeCategoria($query, $categoria) {
 	return $query->where('categoria', $categoria);
@@ -75,22 +78,22 @@ $posts = Post::where(function($query) {
 ````
 
 #### Requests
-Usadas para fazermos a validação de objetos "fora do Controller". Veja:
+Using the Laravel's Request class we can validate the requests "outside of the Controller". See:
 
-````
+````php
 //Método store em PostController
 public function store(PostRequest $request) {
 	...
 }
 ````
 
-#### Autênticação de usuário
-Recurso nativo do Laravel para criarmos usuários e camadas de autênticação no sistema.
+#### Authentication
+Laravel package to authenticate users, create, read, update and delete users. It also haves some different functions like registering users and retrieving password but it wasn't applied in this project.
 
-#### Relacionamento One To Many
-Feito para a relação entre as postagens e comentários.
+#### One To Many relationship
+Used in the posts and comments relations.
 
-````
+````php
 //Em Post.php
 public function comentarios() {
     return $this->hasMany('App\Models\Comentario');
@@ -103,9 +106,9 @@ public function post() {
 ````
 
 #### Soft Deletes
-Recurso usado para, basicamente, recuperar registros deletados. As postagens deletadas irão para a Lixeira, onde podem ser restaurados ou deletados permanentemente.
+Basically, used to work with and restaure deleted posts. The deleted posts goes to the Trash (Lixeira) where they can be restaured or permanently deleted.
 
-````
+````php
 //Em Post.php
 use SoftDeletes
 
@@ -117,36 +120,33 @@ protected $dates = [
 $postsLixeira = Post::onlyTrashed()->get();
 ````
 
-## URLs do projeto
+## Project's URLs/routes
 
-Para o site, pode-se usar:
-- *'/sobre'* para a página de "Sobre Nós";
-- *'/contato'* para a página de Contato;
-- *'/admin'* para logar ou acessar o sistema adminstrativo;
+In the frontend:
+- *'/sobre'* for the Sobre Nós (About us) page;
+- *'/contato'* for the Contato page;
+- *'/admin'* to log in and access the system;
 
-Para o sistema adminstrativo:
-- *'/admin/posts'* para gerenciar as postagens;
-- *'/admin/comentarios'* para consultar e deletar comentários;
-- *'/admin/mensagens'* para consultar e deletar mensagens de Contato;
-- *'/admin/sobre'* para cadastrar e alterar informações do "Sobre Nós"
-- *'/admin/lixeira'* para restaurar ou deletar postagens;
-- *'/admin/ajuda'* para a página de Ajuda;
+In the backend (admin system):
+- *'/admin/posts'* to manage the posts;
+- *'/admin/comentarios'* to see and delete the comments;
+- *'/admin/mensagens'* to see and delete the Contato (contact message);
+- *'/admin/sobre'* to create and update the "Sobre Nós" (About us) info;
+- *'/admin/lixeira'* to restaure and deleted posts;
+- *'/admin/ajuda'* to help's page (written in pt-BR);
 
 ## Blog
-
-Na página inicial, temos uma listagem das postagens que estão no banco de dados. A primeira postagem sempre será a Destacada pelo usuário que administra o Blog e também existe a opção de realizar a listagem de acordo com sua categoria. 
+In the home page, there is a post list. The first post will always be the "flagged" post by the admin of the blog and the user can also filter the posts by category. 
 
 ![](/src_readme/Inicio.png)
 
 ## Post
-
-Cada postagem possui uma imagem principal que fica ao fundo e a opção e exibição de comentários.
+Every post have a main image (in background), the post's stuffs and the form to comment and all the comments of that post.
 
 ![](/src_readme/Post.png)
 
-## Sistema Adminstrativo
-
-A listagem é feita por meio de tabelas para as principais funcionalidades. Para o caso das postagens, existem cinco ações que o usuário pode tomar: criar, destacar, consultar, editar e enviar para a Lixeira.
+## Admin system
+The data are seen using data tables in the main parts of the system. In Post's data table, there are five actions to the user: create, flag, show details, edit and send to Trash (Lixeira).
 
 ![](/src_readme/SistAdmin.png)
 
